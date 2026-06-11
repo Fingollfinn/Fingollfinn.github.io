@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAE 4.VCOD.01 - ArcGIS / Survey123</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../styles/style_academic.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="../../index.html">Antoine<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="../../index.html">Accueil</a></li>
+      <li><a href="../academic.html" class="active">Travaux</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- HERO -->
+    <header class="sae-hero">
+      <div class="sae-hero-left">
+        <div class="sae-hero-eyebrow">
+          <span class="sae-hero-id">SAE 4.VCOD.01</span>
+          <span class="sae-hero-semester">S4</span>
+        </div>
+        <h1>Outil de visualisation géographique &amp; saisie terrain</h1>
+        <p class="sae-hero-desc">
+          Conception d'un système SIG complet alliant collecte terrain mobile (Survey123)
+          et restitution cartographique interactive (ArcGIS Online) - du formulaire de saisie
+          jusqu'au tableau de bord en temps réel.
+        </p>
+        <div class="stack-row">
+          <span class="stack-tag">ArcGIS Online</span>
+          <span class="stack-tag">Survey123</span>
+          <span class="stack-tag">SIG</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- CONTEXTE & OBJECTIFS -->
+    <section class="detail-section">
+      <div class="section-header"><h2>Contexte &amp; objectifs</h2></div>
+      <div class="context-block">
+        <p>
+          <!-- TODO : remplacer par la description réelle du sujet donné en cours -->
+          Cette SAE s'inscrit dans la compétence <strong>Valoriser</strong> du parcours VCOD.
+          L'enjeu était de concevoir un outil SIG opérationnel permettant à des agents terrain
+          de saisir des données géolocalisées sur mobile, puis de les restituer sous forme
+          de tableau de bord cartographique consultable en temps réel par un décideur.
+        </p>
+        <p>
+          Le projet mobilise à la fois des savoir-faire en modélisation de données spatiales,
+          en ergonomie de formulaire terrain et en data visualisation géographique.
+        </p>
+      </div>
+      <ul class="objectives-list">
+        <li>Concevoir un formulaire Survey123 adapté à une saisie mobile sur le terrain</li>
+        <li>Modéliser et publier des couches d'entités spatiales dans ArcGIS Online</li>
+        <li>Construire un tableau de bord interactif (filtres, widgets, carte live)</li>
+        <li>Documenter le dispositif pour une prise en main autonome</li>
+      </ul>
+    </section>
+
+    <!-- CE QUE J'AI FAIT -->
+    <section class="detail-section">
+      <div class="section-header"><h2>Ce que j'ai fait</h2></div>
+      <div class="tasks-grid">
+        <div class="task-item">
+          <span class="task-item-num">01</span>
+          <p>Conception du formulaire Survey123 : champs géolocalisés, listes déroulantes contextuelles, validation de saisie et logique de saut conditionnelle.</p>
+        </div>
+        <div class="task-item">
+          <span class="task-item-num">02</span>
+          <p>Création et configuration des couches d'entités dans ArcGIS Online, définition des symbologies thématiques et gestion des droits de partage.</p>
+        </div>
+        <div class="task-item">
+          <span class="task-item-num">03</span>
+          <p>Mise en place du tableau de bord : carte en temps réel, widgets de comptage et de filtrage, indicateurs synthétiques pour le suivi décisionnel.</p>
+        </div>
+        <div class="task-item">
+          <span class="task-item-num">04</span>
+          <p>Rédaction de la documentation utilisateur terrain : guide de prise en main pas-à-pas, captures d'écran annotées.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CODE SNIPPET -->
+    <section class="detail-section">
+      <div class="section-header"><h2>Extrait de code</h2></div>
+      <div class="terminal-wrap">
+        <div class="terminal-bar">
+          <div class="terminal-dots">
+            <span class="dot-red"></span>
+            <span class="dot-yellow"></span>
+            <span class="dot-green"></span>
+          </div>
+          <span class="terminal-filename"><!-- TODO : nom du fichier, ex: query_layer.py --></span>
+        </div>
+        <div class="terminal-body">
+<pre><span class="t-cm"># TODO - coller ici votre extrait de code le plus représentatif de la SAE</span>
+<span class="t-cm"># Exemple : script Python d'interrogation de la couche ArcGIS via l'API REST</span>
+
+<span class="t-kw">import</span> requests
+
+<span class="t-fn">url</span> = <span class="t-str">"https://services.arcgis.com/&lt;orgId&gt;/arcgis/rest/services/&lt;layer&gt;/FeatureServer/0/query"</span>
+params = {
+    <span class="t-str">"where"</span>: <span class="t-str">"1=1"</span>,
+    <span class="t-str">"outFields"</span>: <span class="t-str">"*"</span>,
+    <span class="t-str">"f"</span>: <span class="t-str">"json"</span>,
+}
+response = requests.<span class="t-fn">get</span>(url, params=params)
+features = response.<span class="t-fn">json</span>()[<span class="t-str">"features"</span>]</pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERIE -->
+    <section class="detail-section">
+      <div class="section-header"><h2>Captures &amp; livrables</h2></div>
+      <div class="gallery-grid">
+        <div class="gallery-slot">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          <span class="slot-label"><!-- TODO : Formulaire Survey123 --><br>Formulaire Survey123</span>
+        </div>
+        <div class="gallery-slot">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span class="slot-label"><!-- TODO : Carte ArcGIS --><br>Carte ArcGIS Online</span>
+        </div>
+        <div class="gallery-slot">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          <span class="slot-label"><!-- TODO : Dashboard --><br>Tableau de bord</span>
+        </div>
+      </div>
+      <p class="gallery-caption">Remplacer chaque slot par une balise &lt;img&gt; pointant vers vos captures d'écran.</p>
+    </section>
+
+    <!-- COMPÉTENCES -->
+    <section class="detail-section">
+      <div class="section-header"><h2>Compétences mobilisées</h2></div>
+      <div class="comp-detail-grid">
+        <div class="comp-detail-card">
+          <span class="comp-pill pill-traiter"><span class="dot"></span>Traiter</span>
+          <p>Collecte et structuration de données géolocalisées hétérogènes via un formulaire mobile normalisé.</p>
+        </div>
+        <div class="comp-detail-card">
+          <span class="comp-pill pill-analyser"><span class="dot"></span>Analyser</span>
+          <p>Lecture et interprétation de distributions spatiales, identification de zones d'intérêt dans les données collectées.</p>
+        </div>
+        <div class="comp-detail-card">
+          <span class="comp-pill pill-valoriser"><span class="dot"></span>Valoriser</span>
+          <p>Restitution cartographique interactive à destination d'un public décideur non-technicien.</p>
+        </div>
+        <div class="comp-detail-card">
+          <span class="comp-pill pill-developper"><span class="dot"></span>Développer</span>
+          <p>Configuration avancée de l'environnement SIG : couches, symbologies, widgets, logique conditionnelle du formulaire.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BILAN -->
+    <section class="detail-section">
+      <div class="section-header"><h2>Bilan &amp; réflexion</h2></div>
+      <div class="bilan-block">
+        <div>
+          <p class="bilan-col-label plus">Points forts</p>
+          <ul class="bilan-items plus">
+            <li><!-- TODO --> Maîtrise rapide de l'environnement Survey123 &amp; ArcGIS Online</li>
+            <li><!-- TODO --> Livrable directement exploitable en conditions réelles</li>
+            <li><!-- TODO --> Documentation claire pour des utilisateurs non-techniciens</li>
+          </ul>
+        </div>
+        <div>
+          <p class="bilan-col-label delta">Points à améliorer</p>
+          <ul class="bilan-items delta">
+            <li><!-- TODO --> Approfondissement de l'analyse spatiale (statistiques de clustering)</li>
+            <li><!-- TODO --> Automatisation de la mise à jour des couches</li>
+          </ul>
+        </div>
+        <div class="bilan-note">
+          <!-- TODO : 2-3 phrases de réflexion personnelle sur la SAE -->
+          Cette SAE m'a permis de découvrir concrètement les enjeux des systèmes d'information géographique
+          dans un contexte professionnel. La dimension terrain - concevoir pour des utilisateurs qui ne voient
+          jamais l'interface de configuration - a été particulièrement formatrice.
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGINATION -->
+    <nav class="sae-pagination" aria-label="Navigation entre SAE">
+      <span></span><!-- pas de "précédent" pour la première SAE -->
+      <a href="sae_4_02.html" class="page-nav-link next">
+        <span class="page-nav-direction">Suivant →</span>
+        <span class="page-nav-title">Reporting d'analyse multivariée - Dashboard R Shiny</span>
+        <span class="page-nav-id">SAE 4.02</span>
+      </a>
+    </nav>
+
+  </main>
+
+  <footer>
+    <span>© 2025 Fingollfinn</span>
+    <div class="footer-links">
+      <a href="../../index.html">Portfolio</a>
+      <a href="https://github.com/Fingollfinn" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:dotantoine67280@gmail.com">Email</a>
+    </div>
+  </footer>
+
+</body>
+</html>

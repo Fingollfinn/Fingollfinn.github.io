@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAE 3.02 - Intégration ETL / Datawarehouse</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../styles/style_academic.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="../../index.html">Antoine<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="../../index.html">Accueil</a></li>
+      <li><a href="../academic.html" class="active">Travaux</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- HERO -->
+    <header class="sae-hero">
+      <div class="sae-hero-left">
+        <div class="sae-hero-eyebrow">
+          <span class="sae-hero-id">SAE 3.02</span>
+          <span class="sae-hero-semester">S3</span>
+        </div>
+        <h1>Intégration de données dans un datawarehouse</h1>
+        <p class="sae-hero-desc">
+          Conception et alimentation d'un entrepôt de données à partir de sources hétérogènes,
+          en mobilisant des outils ETL no-code / low-code - du schéma en étoile
+          jusqu'au chargement incrémental en base relationnelle.
+        </p>
+        <div class="stack-row">
+          <span class="stack-tag">Knime</span>
+          <span class="stack-tag">Talend</span>
+          <span class="stack-tag">SQL</span>
+          <span class="stack-tag">MySQL</span>
+          <span class="stack-tag">ETL</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- CONTEXTE & OBJECTIFS -->
+    <section class="detail-section">
+      <div class="section-header"><h2>Contexte &amp; objectifs</h2></div>
+      <div class="context-block">
+        <p>
+          <!-- TODO : décrire le cas d'usage et les sources de données -->
+          Cette SAE couvre la compétence <strong>Traiter</strong> dans sa dimension la plus technique :
+          construire une architecture de données pérenne à partir de sources brutes hétérogènes.
+          L'enjeu central était de concevoir un schéma relationnel en étoile cohérent, puis
+          d'automatiser l'alimentation de ce schéma via des flux ETL reproductibles.
+        </p>
+        <p>
+          La qualité des données - détection de doublons, normalisation, valeurs manquantes -
+          était un critère d'évaluation à part entière.
+        </p>
+      </div>
+      <ul class="objectives-list">
+        <li>Modéliser un schéma en étoile (table de faits + dimensions) adapté au cas d'usage</li>
+        <li>Développer des flux ETL dans Knime : extraction, transformation, chargement</li>
+        <li>Assurer la qualité des données : déduplication, normalisation, valeurs manquantes</li>
+        <li>Rédiger le dictionnaire de données et documenter le pipeline</li>
+      </ul>
+    </section>
+
+    <!-- CE QUE J'AI FAIT -->
+    <section class="detail-section">
+      <div class="section-header"><h2>Ce que j'ai fait</h2></div>
+      <div class="tasks-grid">
+        <div class="task-item">
+          <span class="task-item-num">01</span>
+          <p>Analyse des sources de données (fichiers Excel, CSV, base MySQL) et conception du modèle dimensionnel en étoile.</p>
+        </div>
+        <div class="task-item">
+          <span class="task-item-num">02</span>
+          <p>Développement du flux ETL Knime : nœuds d'extraction, de jointure, de nettoyage et d'écriture en base MariaDB.</p>
+        </div>
+        <div class="task-item">
+          <span class="task-item-num">03</span>
+          <p>Traitement de la qualité des données : règles de déduplication, imputation des valeurs manquantes, normalisation des libellés.</p>
+        </div>
+        <div class="task-item">
+          <span class="task-item-num">04</span>
+          <p>Rédaction du dictionnaire de données et de la documentation technique du pipeline pour une reprise facilitée.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CODE SNIPPET -->
+    <section class="detail-section">
+      <div class="section-header"><h2>Extrait de code</h2></div>
+      <div class="terminal-wrap">
+        <div class="terminal-bar">
+          <div class="terminal-dots">
+            <span class="dot-red"></span>
+            <span class="dot-yellow"></span>
+            <span class="dot-green"></span>
+          </div>
+          <span class="terminal-filename"><!-- TODO : ex: load_dim_produit.sql --></span>
+        </div>
+        <div class="terminal-body">
+<pre><span class="t-cm">-- TODO - coller ici votre requête ou extrait de flux le plus représentatif</span>
+<span class="t-cm">-- Exemple : chargement incrémental d'une dimension</span>
+
+<span class="t-kw">INSERT INTO</span> dim_produit (id_produit, libelle, categorie, date_maj)
+<span class="t-kw">SELECT</span>
+    src.id          <span class="t-kw">AS</span> id_produit,
+    <span class="t-fn">TRIM</span>(src.nom)   <span class="t-kw">AS</span> libelle,
+    src.categorie,
+    <span class="t-fn">NOW</span>()           <span class="t-kw">AS</span> date_maj
+<span class="t-kw">FROM</span> staging_produits src
+<span class="t-kw">LEFT JOIN</span> dim_produit d <span class="t-kw">ON</span> src.id = d.id_produit
+<span class="t-kw">WHERE</span> d.id_produit <span class="t-kw">IS NULL</span>   <span class="t-cm">-- nouveaux enregistrements seulement</span>
+  <span class="t-kw">OR</span> src.nom &lt;&gt; d.libelle;    <span class="t-cm">-- ou libellé modifié (SCD type 1)</span></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERIE -->
+    <section class="detail-section">
+      <div class="section-header"><h2>Captures &amp; livrables</h2></div>
+      <div class="gallery-grid">
+        <div class="gallery-slot">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+          <span class="slot-label"><!-- TODO --><br>Schéma en étoile</span>
+        </div>
+        <div class="gallery-slot">
+          <svg viewBox="0 0 24 24"><polyline points="21 16 21 21 16 21"/><polyline points="3 8 3 3 8 3"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+          <span class="slot-label"><!-- TODO --><br>Flux Knime</span>
+        </div>
+        <div class="gallery-slot">
+          <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>
+          <span class="slot-label"><!-- TODO --><br>Base DWH peuplée</span>
+        </div>
+      </div>
+      <p class="gallery-caption">Remplacer chaque slot par une balise &lt;img&gt; pointant vers vos captures.</p>
+    </section>
+
+    <!-- COMPÉTENCES -->
+    <section class="detail-section">
+      <div class="section-header"><h2>Compétences mobilisées</h2></div>
+      <div class="comp-detail-grid">
+        <div class="comp-detail-card">
+          <span class="comp-pill pill-traiter"><span class="dot"></span>Traiter</span>
+          <p>Conception du modèle dimensionnel et automatisation de l'alimentation ETL depuis des sources hétérogènes.</p>
+        </div>
+        <div class="comp-detail-card">
+          <span class="comp-pill pill-analyser"><span class="dot"></span>Analyser</span>
+          <p>Audit qualité des données sources, identification des incohérences et définition des règles de transformation.</p>
+        </div>
+        <div class="comp-detail-card">
+          <span class="comp-pill pill-developper"><span class="dot"></span>Développer</span>
+          <p>Développement de flux Knime structurés, requêtes SQL d'intégration incrémentale, documentation technique.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BILAN -->
+    <section class="detail-section">
+      <div class="section-header"><h2>Bilan &amp; réflexion</h2></div>
+      <div class="bilan-block">
+        <div>
+          <p class="bilan-col-label plus">Points forts</p>
+          <ul class="bilan-items plus">
+            <li><!-- TODO --> Bonne compréhension des modèles dimensionnels et de leurs enjeux</li>
+            <li><!-- TODO --> Pipeline ETL fonctionnel et reproductible</li>
+            <li><!-- TODO --> Rigueur sur la qualité des données en entrée</li>
+          </ul>
+        </div>
+        <div>
+          <p class="bilan-col-label delta">Points à améliorer</p>
+          <ul class="bilan-items delta">
+            <li><!-- TODO --> Explorer les SCD de type 2 (historisation des dimensions)</li>
+            <li><!-- TODO --> Passer à un outil code-first (dbt) pour gagner en maintenabilité</li>
+          </ul>
+        </div>
+        <div class="bilan-note">
+          <!-- TODO : réflexion personnelle -->
+          Cette SAE m'a donné une première expérience concrète de ce que signifie "mettre de la donnée en production".
+          La partie qualité - souvent sous-estimée - s'est révélée la plus chronophage et la plus instructive :
+          des données mal nettoyées en amont contaminent toutes les analyses en aval.
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGINATION -->
+    <nav class="sae-pagination" aria-label="Navigation entre SAE">
+      <a href="sae_4_02.html" class="page-nav-link">
+        <span class="page-nav-direction">← Précédent</span>
+        <span class="page-nav-title">Reporting d'analyse multivariée - Dashboard R Shiny</span>
+        <span class="page-nav-id">SAE 4.02</span>
+      </a>
+      <a href="sae_3_vcod_04.html" class="page-nav-link next">
+        <span class="page-nav-direction">Suivant →</span>
+        <span class="page-nav-title">Conformité RGPD &amp; analyse de risque sur données</span>
+        <span class="page-nav-id">SAE 3.VCOD.04</span>
+      </a>
+    </nav>
+
+  </main>
+
+  <footer>
+    <span>© 2025 Fingollfinn</span>
+    <div class="footer-links">
+      <a href="../../index.html">Portfolio</a>
+      <a href="https://github.com/Fingollfinn" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:dotantoine67280@gmail.com">Email</a>
+    </div>
+  </footer>
+
+</body>
+</html>

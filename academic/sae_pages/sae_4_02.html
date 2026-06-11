@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAE 4.02 - Dashboard R Shiny</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../styles/style_academic.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="../../index.html">Antoine<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="../../index.html">Accueil</a></li>
+      <li><a href="../academic.html" class="active">Travaux</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- HERO -->
+    <header class="sae-hero">
+      <div class="sae-hero-left">
+        <div class="sae-hero-eyebrow">
+          <span class="sae-hero-id">SAE 4.02</span>
+          <span class="sae-hero-semester">S4</span>
+        </div>
+        <h1>Reporting d'analyse multivariée - Dashboard R Shiny</h1>
+        <p class="sae-hero-desc">
+          Production d'un rapport d'analyse multivariée (ACP, CAH) rendu interactif via une
+          application R Shiny : de l'exploration statistique jusqu'à la narration analytique
+          à destination d'un public non-statisticien.
+        </p>
+        <div class="stack-row">
+          <span class="stack-tag">R</span>
+          <span class="stack-tag">Shiny</span>
+          <span class="stack-tag">tidyverse</span>
+          <span class="stack-tag">FactoMineR</span>
+          <span class="stack-tag">ggplot2</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- CONTEXTE & OBJECTIFS -->
+    <section class="detail-section">
+      <div class="section-header"><h2>Contexte &amp; objectifs</h2></div>
+      <div class="context-block">
+        <p>
+          <!-- TODO : décrire le jeu de données et le commanditaire fictif -->
+          Cette SAE s'inscrit dans les compétences <strong>Analyser</strong> et <strong>Valoriser</strong>.
+          L'objectif était de mener une analyse multivariée complète sur un jeu de données tabulaire,
+          puis de rendre les résultats accessibles via une interface Shiny interactive - combinant
+          rigueur statistique et clarté de communication.
+        </p>
+        <p>
+          L'application devait permettre à un utilisateur sans bagage statistique d'explorer
+          dynamiquement les composantes principales, les regroupements et les interprétations métier.
+        </p>
+      </div>
+      <ul class="objectives-list">
+        <li>Réaliser une ACP et une CAH sur un jeu de données tabulaire avec FactoMineR</li>
+        <li>Interpréter les composantes et dendrogrammes dans le contexte métier du jeu de données</li>
+        <li>Concevoir une interface Shiny réactive (onglets, contrôles, sorties ggplot2)</li>
+        <li>Intégrer narration analytique et graphiques dans un rapport HTML cohérent</li>
+      </ul>
+    </section>
+
+    <!-- CE QUE J'AI FAIT -->
+    <section class="detail-section">
+      <div class="section-header"><h2>Ce que j'ai fait</h2></div>
+      <div class="tasks-grid">
+        <div class="task-item">
+          <span class="task-item-num">01</span>
+          <p>Nettoyage et préparation du jeu de données : gestion des valeurs manquantes, normalisation, recodage des variables catégorielles.</p>
+        </div>
+        <div class="task-item">
+          <span class="task-item-num">02</span>
+          <p>Analyse en Composantes Principales (ACP) avec FactoMineR : sélection des axes, cercle des corrélations, biplot individus/variables.</p>
+        </div>
+        <div class="task-item">
+          <span class="task-item-num">03</span>
+          <p>Classification Ascendante Hiérarchique (CAH) : choix de la métrique de dissimilarité, coupe du dendrogramme, profil des classes.</p>
+        </div>
+        <div class="task-item">
+          <span class="task-item-num">04</span>
+          <p>Développement de l'application Shiny : architecture en modules, réactivité des sorties graphiques, mise en page responsive.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CODE SNIPPET -->
+    <section class="detail-section">
+      <div class="section-header"><h2>Extrait de code</h2></div>
+      <div class="terminal-wrap">
+        <div class="terminal-bar">
+          <div class="terminal-dots">
+            <span class="dot-red"></span>
+            <span class="dot-yellow"></span>
+            <span class="dot-green"></span>
+          </div>
+          <span class="terminal-filename"><!-- TODO : ex: server.R ou acp_module.R --></span>
+        </div>
+        <div class="terminal-body">
+<pre><span class="t-cm"># TODO - coller ici votre extrait le plus représentatif</span>
+<span class="t-cm"># Exemple : ACP avec FactoMineR + rendu Shiny réactif</span>
+
+<span class="t-kw">library</span>(FactoMineR)
+<span class="t-kw">library</span>(factoextra)
+
+<span class="t-cm"># ACP sur données normalisées</span>
+res_pca &lt;- <span class="t-fn">PCA</span>(df_scaled, graph = <span class="t-nb">FALSE</span>)
+
+<span class="t-cm"># Serveur Shiny - output réactif</span>
+output$<span class="t-fn">biplot</span> &lt;- <span class="t-fn">renderPlot</span>({
+  <span class="t-fn">fviz_pca_biplot</span>(
+    res_pca,
+    axes    = c(input$<span class="t-fn">dim1</span>, input$<span class="t-fn">dim2</span>),
+    repel   = <span class="t-nb">TRUE</span>,
+    col.ind = <span class="t-str">"cos2"</span>,
+    gradient.cols = c(<span class="t-str">"#0d1117"</span>, <span class="t-str">"#63b3ed"</span>)
+  )
+})</pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERIE -->
+    <section class="detail-section">
+      <div class="section-header"><h2>Captures &amp; livrables</h2></div>
+      <div class="gallery-grid">
+        <div class="gallery-slot">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><line x1="12" y1="3" x2="12" y2="21"/><path d="M3 9h18M3 15h18"/></svg>
+          <span class="slot-label"><!-- TODO --><br>Cercle des corrélations (ACP)</span>
+        </div>
+        <div class="gallery-slot">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          <span class="slot-label"><!-- TODO --><br>Dendrogramme CAH</span>
+        </div>
+        <div class="gallery-slot">
+          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          <span class="slot-label"><!-- TODO --><br>Interface Shiny</span>
+        </div>
+      </div>
+      <p class="gallery-caption">Remplacer chaque slot par une balise &lt;img&gt; pointant vers vos captures.</p>
+    </section>
+
+    <!-- COMPÉTENCES -->
+    <section class="detail-section">
+      <div class="section-header"><h2>Compétences mobilisées</h2></div>
+      <div class="comp-detail-grid">
+        <div class="comp-detail-card">
+          <span class="comp-pill pill-traiter"><span class="dot"></span>Traiter</span>
+          <p>Préparation et normalisation du jeu de données en vue de l'analyse multivariée.</p>
+        </div>
+        <div class="comp-detail-card">
+          <span class="comp-pill pill-analyser"><span class="dot"></span>Analyser</span>
+          <p>ACP, CAH, interprétation des axes factoriels et des classes dans un contexte métier réel.</p>
+        </div>
+        <div class="comp-detail-card">
+          <span class="comp-pill pill-valoriser"><span class="dot"></span>Valoriser</span>
+          <p>Restitution interactive via Shiny et narration analytique accessible à un public non-expert.</p>
+        </div>
+        <div class="comp-detail-card">
+          <span class="comp-pill pill-developper"><span class="dot"></span>Développer</span>
+          <p>Architecture applicative Shiny : modules, réactivité, mise en page, intégration ggplot2.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BILAN -->
+    <section class="detail-section">
+      <div class="section-header"><h2>Bilan &amp; réflexion</h2></div>
+      <div class="bilan-block">
+        <div>
+          <p class="bilan-col-label plus">Points forts</p>
+          <ul class="bilan-items plus">
+            <li><!-- TODO --> Bonne maîtrise de la chaîne ACP → interprétation → restitution</li>
+            <li><!-- TODO --> Interface Shiny ergonomique et réactive</li>
+            <li><!-- TODO --> Narration analytique claire pour un public non-statisticien</li>
+          </ul>
+        </div>
+        <div>
+          <p class="bilan-col-label delta">Points à améliorer</p>
+          <ul class="bilan-items delta">
+            <li><!-- TODO --> Aller plus loin dans la validation des clusters (indice de Silhouette)</li>
+            <li><!-- TODO --> Déploiement en ligne de l'application Shiny (shinyapps.io)</li>
+          </ul>
+        </div>
+        <div class="bilan-note">
+          <!-- TODO : réflexion personnelle -->
+          Cette SAE a consolidé mon aisance avec R et l'écosystème tidyverse, et m'a surtout appris
+          à ne pas séparer l'analyse de sa restitution. Concevoir une interface interactive oblige
+          à clarifier sa propre compréhension des résultats avant de les communiquer.
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGINATION -->
+    <nav class="sae-pagination" aria-label="Navigation entre SAE">
+      <a href="sae_4_vcod_01.html" class="page-nav-link">
+        <span class="page-nav-direction">← Précédent</span>
+        <span class="page-nav-title">Outil de visualisation géographique &amp; saisie terrain</span>
+        <span class="page-nav-id">SAE 4.VCOD.01</span>
+      </a>
+      <a href="sae_3_02.html" class="page-nav-link next">
+        <span class="page-nav-direction">Suivant →</span>
+        <span class="page-nav-title">Intégration de données dans un datawarehouse</span>
+        <span class="page-nav-id">SAE 3.02</span>
+      </a>
+    </nav>
+
+  </main>
+
+  <footer>
+    <span>© 2025 Fingollfinn</span>
+    <div class="footer-links">
+      <a href="../../index.html">Portfolio</a>
+      <a href="https://github.com/Fingollfinn" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:dotantoine67280@gmail.com">Email</a>
+    </div>
+  </footer>
+
+</body>
+</html>

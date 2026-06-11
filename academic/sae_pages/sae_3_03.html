@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAE 3.03 - Analyse temporelle Elden Ring</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../styles/style_academic.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="../../index.html">Antoine<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="../../index.html">Accueil</a></li>
+      <li><a href="../academic.html" class="active">Travaux</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    <!-- HERO -->
+    <header class="sae-hero">
+      <div class="sae-hero-left">
+        <div class="sae-hero-eyebrow">
+          <span class="sae-hero-id">SAE 3.03</span>
+          <span class="sae-hero-semester">S3</span>
+        </div>
+        <h1>Analyse temporelle des joueurs Elden Ring (Steam DB)</h1>
+        <p class="sae-hero-desc">
+          Analyse de séries temporelles sur les données de joueurs actifs Elden Ring extraites
+          de SteamDB : décomposition, modélisation prévisionnelle et mise en relation des pics
+          d'activité avec les événements du jeu (DLC, patches, annonces).
+        </p>
+        <div class="stack-row">
+          <span class="stack-tag">Python</span>
+          <span class="stack-tag">pandas</span>
+          <span class="stack-tag">statsmodels</span>
+          <span class="stack-tag">matplotlib</span>
+          <span class="stack-tag">SteamDB</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- CONTEXTE & OBJECTIFS -->
+    <section class="detail-section">
+      <div class="section-header"><h2>Contexte &amp; objectifs</h2></div>
+      <div class="context-block">
+        <p>
+          Cette SAE couvre les compétences <strong>Analyser</strong> et <strong>Valoriser</strong>
+          dans leur dimension temporelle. L'enjeu était d'appliquer les outils de l'analyse
+          de séries temporelles - décomposition, lissage, modélisation ARIMA - à des données
+          réelles de joueurs actifs quotidiens, puis de produire un rapport HTML structuré
+          présentant les résultats de façon accessible.
+        </p>
+        <p>
+          Le choix du sujet Elden Ring permettait d'ancrer l'analyse dans un contexte riche
+          en événements identifiables (sortie du DLC <em>Shadow of the Erdtree</em>, mises à jour,
+          annonces) servant de variables explicatives aux pics observés.
+        </p>
+      </div>
+      <ul class="objectives-list">
+        <li>Extraire et nettoyer les données historiques de joueurs depuis SteamDB</li>
+        <li>Décomposer la série temporelle (tendance, saisonnalité, résidus)</li>
+        <li>Modéliser la prévision à court terme (lissage exponentiel, ARIMA)</li>
+        <li>Mettre en relation les pics d'activité avec les événements de jeu</li>
+        <li>Produire un rapport HTML avec visualisations intégrées</li>
+      </ul>
+    </section>
+
+    <!-- CE QUE J'AI FAIT -->
+    <section class="detail-section">
+      <div class="section-header"><h2>Ce que j'ai fait</h2></div>
+      <div class="tasks-grid">
+        <div class="task-item">
+          <span class="task-item-num">01</span>
+          <p>Collecte des données via export CSV SteamDB et nettoyage : resampling hebdomadaire, interpolation des valeurs manquantes, détection d'outliers.</p>
+        </div>
+        <div class="task-item">
+          <span class="task-item-num">02</span>
+          <p>Décomposition STL de la série : extraction de la tendance long-terme, de la saisonnalité hebdomadaire et des résidus.</p>
+        </div>
+        <div class="task-item">
+          <span class="task-item-num">03</span>
+          <p>Modélisation prévisionnelle : comparaison lissage exponentiel (ETS) vs ARIMA, évaluation sur données de test (MAE, RMSE).</p>
+        </div>
+        <div class="task-item">
+          <span class="task-item-num">04</span>
+          <p>Annotation des pics : chronologie des événements de jeu superposée à la série, interprétation qualitative des hausses d'activité.</p>
+        </div>
+        <div class="task-item">
+          <span class="task-item-num">05</span>
+          <p>Mise en page du rapport HTML : narration analytique, graphiques matplotlib intégrés, synthèse des résultats prévisionnels.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CODE SNIPPET -->
+    <section class="detail-section">
+      <div class="section-header"><h2>Extrait de code</h2></div>
+      <div class="terminal-wrap">
+        <div class="terminal-bar">
+          <div class="terminal-dots">
+            <span class="dot-red"></span>
+            <span class="dot-yellow"></span>
+            <span class="dot-green"></span>
+          </div>
+          <span class="terminal-filename"><!-- TODO : ex: arima_forecast.py --></span>
+        </div>
+        <div class="terminal-body">
+<pre><span class="t-cm"># TODO - coller ici votre extrait le plus représentatif</span>
+<span class="t-cm"># Exemple : décomposition STL + modèle ARIMA avec statsmodels</span>
+
+<span class="t-kw">from</span> statsmodels.tsa.seasonal <span class="t-kw">import</span> STL
+<span class="t-kw">from</span> statsmodels.tsa.arima.model <span class="t-kw">import</span> ARIMA
+
+<span class="t-cm"># Décomposition STL (période 7 jours)</span>
+stl = <span class="t-fn">STL</span>(series, period=<span class="t-num">7</span>, robust=<span class="t-nb">True</span>)
+result = stl.<span class="t-fn">fit</span>()
+
+<span class="t-cm"># Ajustement ARIMA sur la composante désaisonnalisée</span>
+model = <span class="t-fn">ARIMA</span>(result.trend + result.resid, order=(<span class="t-num">2</span>, <span class="t-num">1</span>, <span class="t-num">2</span>))
+fit   = model.<span class="t-fn">fit</span>()
+
+<span class="t-cm"># Prévision à 30 jours</span>
+forecast = fit.<span class="t-fn">forecast</span>(steps=<span class="t-num">30</span>)
+print(fit.<span class="t-fn">summary</span>())</pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERIE -->
+    <section class="detail-section">
+      <div class="section-header"><h2>Captures &amp; livrables</h2></div>
+      <div class="gallery-grid">
+        <div class="gallery-slot">
+          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          <span class="slot-label"><!-- TODO --><br>Série temporelle brute + événements</span>
+        </div>
+        <div class="gallery-slot">
+          <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          <span class="slot-label"><!-- TODO --><br>Décomposition STL</span>
+        </div>
+        <div class="gallery-slot">
+          <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 4-8"/></svg>
+          <span class="slot-label"><!-- TODO --><br>Prévision ARIMA vs réel</span>
+        </div>
+      </div>
+      <p class="gallery-caption">Remplacer chaque slot par une balise &lt;img&gt; pointant vers vos captures.</p>
+    </section>
+
+    <!-- COMPÉTENCES -->
+    <section class="detail-section">
+      <div class="section-header"><h2>Compétences mobilisées</h2></div>
+      <div class="comp-detail-grid">
+        <div class="comp-detail-card">
+          <span class="comp-pill pill-traiter"><span class="dot"></span>Traiter</span>
+          <p>Extraction, nettoyage et resampling de données temporelles depuis une source web (SteamDB).</p>
+        </div>
+        <div class="comp-detail-card">
+          <span class="comp-pill pill-analyser"><span class="dot"></span>Analyser</span>
+          <p>Décomposition STL, modélisation ARIMA, évaluation des performances prévisionnelles (MAE, RMSE).</p>
+        </div>
+        <div class="comp-detail-card">
+          <span class="comp-pill pill-valoriser"><span class="dot"></span>Valoriser</span>
+          <p>Rapport HTML avec narration analytique, graphiques annotés et synthèse des résultats accessible.</p>
+        </div>
+        <div class="comp-detail-card">
+          <span class="comp-pill pill-developper"><span class="dot"></span>Développer</span>
+          <p>Pipeline Python complet : collecte → traitement → modélisation → export de rapport HTML.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BILAN -->
+    <section class="detail-section">
+      <div class="section-header"><h2>Bilan &amp; réflexion</h2></div>
+      <div class="bilan-block">
+        <div>
+          <p class="bilan-col-label plus">Points forts</p>
+          <ul class="bilan-items plus">
+            <li><!-- TODO --> Sujet personnel (Elden Ring) qui a maintenu la motivation sur toute la durée</li>
+            <li><!-- TODO --> Bonne maîtrise de la décomposition STL et de son interprétation</li>
+            <li><!-- TODO --> Rapport HTML soigné, visualisations lisibles et commentées</li>
+          </ul>
+        </div>
+        <div>
+          <p class="bilan-col-label delta">Points à améliorer</p>
+          <ul class="bilan-items delta">
+            <li><!-- TODO --> Mieux justifier le choix de l'ordre ARIMA (ACF/PACF plus rigoureuse)</li>
+            <li><!-- TODO --> Intégrer des variables exogènes (SARIMAX) pour capter l'effet des DLC</li>
+          </ul>
+        </div>
+        <div class="bilan-note">
+          <!-- TODO : réflexion personnelle -->
+          C'est la SAE qui m'a donné le plus envie de poursuivre vers l'analyse de données :
+          partir d'une question concrète - "pourquoi le pic de joueurs en juin 2024 ?" - et y
+          répondre avec des outils statistiques rigoureux est exactement le type de travail
+          que je souhaite faire à terme. Le passage à Python pour cette SAE (après R en S3.02)
+          a aussi confirmé mon attrait pour cet écosystème.
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGINATION -->
+    <nav class="sae-pagination" aria-label="Navigation entre SAE">
+      <a href="sae_3_vcod_04.html" class="page-nav-link">
+        <span class="page-nav-direction">← Précédent</span>
+        <span class="page-nav-title">Conformité RGPD &amp; analyse de risque</span>
+        <span class="page-nav-id">SAE 3.VCOD.04</span>
+      </a>
+      <span></span><!-- dernière SAE, pas de suivant -->
+    </nav>
+
+  </main>
+
+  <footer>
+    <span>© 2025 Fingollfinn</span>
+    <div class="footer-links">
+      <a href="../../index.html">Portfolio</a>
+      <a href="https://github.com/Fingollfinn" target="_blank" rel="noopener">GitHub</a>
+      <a href="mailto:dotantoine67280@gmail.com">Email</a>
+    </div>
+  </footer>
+
+</body>
+</html>
