@@ -48,11 +48,12 @@
       <div class="section-header"><h2>Contexte &amp; objectifs</h2></div>
       <div class="context-block">
         <p>
-          <!-- TODO : remplacer par la description réelle du sujet donné en cours -->
           Cette SAE s'inscrit dans la compétence <strong>Valoriser</strong> du parcours VCOD.
           L'enjeu était de concevoir un outil SIG opérationnel permettant à des agents terrain
           de saisir des données géolocalisées sur mobile, puis de les restituer sous forme
           de tableau de bord cartographique consultable en temps réel par un décideur.
+          Ce travail a été réalisé sur les intersections entre lignes de tramway et les autres 
+          modes de transport, sur tout le campus.
         </p>
         <p>
           Le projet mobilise à la fois des savoir-faire en modélisation de données spatiales,
@@ -77,7 +78,7 @@
         </div>
         <div class="task-item">
           <span class="task-item-num">02</span>
-          <p>Création et configuration des couches d'entités dans ArcGIS Online, définition des symbologies thématiques et gestion des droits de partage.</p>
+          <p>Création et configuration des couches d'entités dans ArcGIS Online, définition des symbologies thématiques.</p>
         </div>
         <div class="task-item">
           <span class="task-item-num">03</span>
@@ -85,37 +86,7 @@
         </div>
         <div class="task-item">
           <span class="task-item-num">04</span>
-          <p>Rédaction de la documentation utilisateur terrain : guide de prise en main pas-à-pas, captures d'écran annotées.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CODE SNIPPET -->
-    <section class="detail-section">
-      <div class="section-header"><h2>Extrait de code</h2></div>
-      <div class="terminal-wrap">
-        <div class="terminal-bar">
-          <div class="terminal-dots">
-            <span class="dot-red"></span>
-            <span class="dot-yellow"></span>
-            <span class="dot-green"></span>
-          </div>
-          <span class="terminal-filename"><!-- TODO : nom du fichier, ex: query_layer.py --></span>
-        </div>
-        <div class="terminal-body">
-<pre><span class="t-cm"># TODO - coller ici votre extrait de code le plus représentatif de la SAE</span>
-<span class="t-cm"># Exemple : script Python d'interrogation de la couche ArcGIS via l'API REST</span>
-
-<span class="t-kw">import</span> requests
-
-<span class="t-fn">url</span> = <span class="t-str">"https://services.arcgis.com/&lt;orgId&gt;/arcgis/rest/services/&lt;layer&gt;/FeatureServer/0/query"</span>
-params = {
-    <span class="t-str">"where"</span>: <span class="t-str">"1=1"</span>,
-    <span class="t-str">"outFields"</span>: <span class="t-str">"*"</span>,
-    <span class="t-str">"f"</span>: <span class="t-str">"json"</span>,
-}
-response = requests.<span class="t-fn">get</span>(url, params=params)
-features = response.<span class="t-fn">json</span>()[<span class="t-str">"features"</span>]</pre>
+          <p>Rédaction de la documentation utilisateur terrain : guide de prise en main pas-à-pas, captures d'écran annotées et présentation au commanditaire.</p>
         </div>
       </div>
     </section>
@@ -137,7 +108,7 @@ features = response.<span class="t-fn">json</span>()[<span class="t-str">"featur
           <span class="slot-label"><!-- TODO : Dashboard --><br>Tableau de bord</span>
         </div>
       </div>
-      <p class="gallery-caption">Remplacer chaque slot par une balise &lt;img&gt; pointant vers vos captures d'écran.</p>
+      <p class="gallery-caption">Captures d'écran issues du rendu final présenté au commanditaire</p>
     </section>
 
     <!-- COMPÉTENCES -->
@@ -147,10 +118,6 @@ features = response.<span class="t-fn">json</span>()[<span class="t-str">"featur
         <div class="comp-detail-card">
           <span class="comp-pill pill-traiter"><span class="dot"></span>Traiter</span>
           <p>Collecte et structuration de données géolocalisées hétérogènes via un formulaire mobile normalisé.</p>
-        </div>
-        <div class="comp-detail-card">
-          <span class="comp-pill pill-analyser"><span class="dot"></span>Analyser</span>
-          <p>Lecture et interprétation de distributions spatiales, identification de zones d'intérêt dans les données collectées.</p>
         </div>
         <div class="comp-detail-card">
           <span class="comp-pill pill-valoriser"><span class="dot"></span>Valoriser</span>
@@ -170,35 +137,37 @@ features = response.<span class="t-fn">json</span>()[<span class="t-str">"featur
         <div>
           <p class="bilan-col-label plus">Points forts</p>
           <ul class="bilan-items plus">
-            <li><!-- TODO --> Maîtrise rapide de l'environnement Survey123 &amp; ArcGIS Online</li>
-            <li><!-- TODO --> Livrable directement exploitable en conditions réelles</li>
-            <li><!-- TODO --> Documentation claire pour des utilisateurs non-techniciens</li>
+            <li>Maîtrise rapide de l'environnement Survey123 &amp; ArcGIS Online</li>
+            <li>Livrable directement exploitable en conditions réelles</li>
+            <li>Documentation claire pour des utilisateurs non-techniciens</li>
           </ul>
         </div>
         <div>
           <p class="bilan-col-label delta">Points à améliorer</p>
           <ul class="bilan-items delta">
-            <li><!-- TODO --> Approfondissement de l'analyse spatiale (statistiques de clustering)</li>
-            <li><!-- TODO --> Automatisation de la mise à jour des couches</li>
+            <li>Améliorer la symbologie, avec des pictogrammes pertinents</li>
+            <li>Réflexion sur les applications de notre travail dans le monde réel</li>
           </ul>
         </div>
         <div class="bilan-note">
           <!-- TODO : 2-3 phrases de réflexion personnelle sur la SAE -->
           Cette SAE m'a permis de découvrir concrètement les enjeux des systèmes d'information géographique
-          dans un contexte professionnel. La dimension terrain - concevoir pour des utilisateurs qui ne voient
-          jamais l'interface de configuration - a été particulièrement formatrice.
+          dans un contexte professionnel. Après quelques heures de formation, je maîtrise désormais un outil 
+          professionnel, et suis capable de produire des visualisation et cartographies de qualité.
         </div>
       </div>
     </section>
 
     <!-- PAGINATION -->
     <nav class="sae-pagination" aria-label="Navigation entre SAE">
-      <span></span><!-- pas de "précédent" pour la première SAE -->
-      <a href="sae_4_02.html" class="page-nav-link next">
-        <span class="page-nav-direction">Suivant →</span>
-        <span class="page-nav-title">Reporting d'analyse multivariée - Dashboard R Shiny</span>
-        <span class="page-nav-id">SAE 4.02</span>
+      <span></span>
+      <a href="../academic.html" class="page-nav-link home">
+        Retour aux travaux
       </a>
+      <a href="sae_4_02.html" class="page-nav-link next">
+        Suivant →
+      </a>
+      
     </nav>
 
   </main>

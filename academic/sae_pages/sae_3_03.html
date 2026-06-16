@@ -33,7 +33,7 @@
         <p class="sae-hero-desc">
           Analyse de séries temporelles sur les données de joueurs actifs Elden Ring extraites
           de SteamDB : décomposition, modélisation prévisionnelle et mise en relation des pics
-          d'activité avec les événements du jeu (DLC, patches, annonces).
+          d'activité avec les événements du jeu (heures de connexions, sorties de mises à jour...)
         </p>
         <div class="stack-row">
           <span class="stack-tag">Python</span>
@@ -57,9 +57,8 @@
           présentant les résultats de façon accessible.
         </p>
         <p>
-          Le choix du sujet Elden Ring permettait d'ancrer l'analyse dans un contexte riche
-          en événements identifiables (sortie du DLC <em>Shadow of the Erdtree</em>, mises à jour,
-          annonces) servant de variables explicatives aux pics observés.
+          Le choix du sujet, ici le nombre de joueur d'Elden Ring, m'a permis d'ancrer mes analyses dans
+          un contexte que je maitrise, permettant de me concentrer sur les aspects techniques plus complexes.
         </p>
       </div>
       <ul class="objectives-list">
@@ -67,7 +66,7 @@
         <li>Décomposer la série temporelle (tendance, saisonnalité, résidus)</li>
         <li>Modéliser la prévision à court terme (lissage exponentiel, ARIMA)</li>
         <li>Mettre en relation les pics d'activité avec les événements de jeu</li>
-        <li>Produire un rapport HTML avec visualisations intégrées</li>
+        <li>Produire un rapport avec visualisations intégrées</li>
       </ul>
     </section>
 
@@ -77,7 +76,7 @@
       <div class="tasks-grid">
         <div class="task-item">
           <span class="task-item-num">01</span>
-          <p>Collecte des données via export CSV SteamDB et nettoyage : resampling hebdomadaire, interpolation des valeurs manquantes, détection d'outliers.</p>
+          <p>Collecte des données via export CSV SteamDB et nettoyage : sélection d'une plage adaptée, détection d'outliers.</p>
         </div>
         <div class="task-item">
           <span class="task-item-num">02</span>
@@ -85,7 +84,7 @@
         </div>
         <div class="task-item">
           <span class="task-item-num">03</span>
-          <p>Modélisation prévisionnelle : comparaison lissage exponentiel (ETS) vs ARIMA, évaluation sur données de test (MAE, RMSE).</p>
+          <p>Modélisation prévisionnelle : comparaison lissage exponentiel (ETS) vs ARIMA, évaluation sur données de test (RMSE).</p>
         </div>
         <div class="task-item">
           <span class="task-item-num">04</span>
@@ -93,7 +92,7 @@
         </div>
         <div class="task-item">
           <span class="task-item-num">05</span>
-          <p>Mise en page du rapport HTML : narration analytique, graphiques matplotlib intégrés, synthèse des résultats prévisionnels.</p>
+          <p>Mise en page du rapport Markdown : narration analytique, graphiques matplotlib intégrés, synthèse des résultats prévisionnels.</p>
         </div>
       </div>
     </section>
@@ -108,26 +107,12 @@
             <span class="dot-yellow"></span>
             <span class="dot-green"></span>
           </div>
-          <span class="terminal-filename"><!-- TODO : ex: arima_forecast.py --></span>
+          <span class="terminal-filename"><!-- Coller script R --></span>
         </div>
         <div class="terminal-body">
-<pre><span class="t-cm"># TODO - coller ici votre extrait le plus représentatif</span>
-<span class="t-cm"># Exemple : décomposition STL + modèle ARIMA avec statsmodels</span>
-
-<span class="t-kw">from</span> statsmodels.tsa.seasonal <span class="t-kw">import</span> STL
-<span class="t-kw">from</span> statsmodels.tsa.arima.model <span class="t-kw">import</span> ARIMA
-
-<span class="t-cm"># Décomposition STL (période 7 jours)</span>
-stl = <span class="t-fn">STL</span>(series, period=<span class="t-num">7</span>, robust=<span class="t-nb">True</span>)
-result = stl.<span class="t-fn">fit</span>()
-
-<span class="t-cm"># Ajustement ARIMA sur la composante désaisonnalisée</span>
-model = <span class="t-fn">ARIMA</span>(result.trend + result.resid, order=(<span class="t-num">2</span>, <span class="t-num">1</span>, <span class="t-num">2</span>))
-fit   = model.<span class="t-fn">fit</span>()
-
-<span class="t-cm"># Prévision à 30 jours</span>
-forecast = fit.<span class="t-fn">forecast</span>(steps=<span class="t-num">30</span>)
-print(fit.<span class="t-fn">summary</span>())</pre>
+<pre>
+  <span class="t-cm"># TODO - retrouver script R</span>
+</pre>
         </div>
       </div>
     </section>
@@ -149,7 +134,7 @@ print(fit.<span class="t-fn">summary</span>())</pre>
           <span class="slot-label"><!-- TODO --><br>Prévision ARIMA vs réel</span>
         </div>
       </div>
-      <p class="gallery-caption">Remplacer chaque slot par une balise &lt;img&gt; pointant vers vos captures.</p>
+      <p class="gallery-caption">Captures issues du travail de traitement de données sur les joueurs d'Elden Ring.</p>
     </section>
 
     <!-- COMPÉTENCES -->
@@ -157,20 +142,12 @@ print(fit.<span class="t-fn">summary</span>())</pre>
       <div class="section-header"><h2>Compétences mobilisées</h2></div>
       <div class="comp-detail-grid">
         <div class="comp-detail-card">
-          <span class="comp-pill pill-traiter"><span class="dot"></span>Traiter</span>
-          <p>Extraction, nettoyage et resampling de données temporelles depuis une source web (SteamDB).</p>
-        </div>
-        <div class="comp-detail-card">
           <span class="comp-pill pill-analyser"><span class="dot"></span>Analyser</span>
-          <p>Décomposition STL, modélisation ARIMA, évaluation des performances prévisionnelles (MAE, RMSE).</p>
+          <p>Décomposition des données, modélisation ARIMA, évaluation des performances prévisionnelles (RMSE).</p>
         </div>
         <div class="comp-detail-card">
           <span class="comp-pill pill-valoriser"><span class="dot"></span>Valoriser</span>
-          <p>Rapport HTML avec narration analytique, graphiques annotés et synthèse des résultats accessible.</p>
-        </div>
-        <div class="comp-detail-card">
-          <span class="comp-pill pill-developper"><span class="dot"></span>Développer</span>
-          <p>Pipeline Python complet : collecte → traitement → modélisation → export de rapport HTML.</p>
+          <p>Rapport en Markdown avec code intégré avec l'utilisation de l'outil RMarkdown</p>
         </div>
       </div>
     </section>
@@ -182,25 +159,21 @@ print(fit.<span class="t-fn">summary</span>())</pre>
         <div>
           <p class="bilan-col-label plus">Points forts</p>
           <ul class="bilan-items plus">
-            <li><!-- TODO --> Sujet personnel (Elden Ring) qui a maintenu la motivation sur toute la durée</li>
-            <li><!-- TODO --> Bonne maîtrise de la décomposition STL et de son interprétation</li>
-            <li><!-- TODO --> Rapport HTML soigné, visualisations lisibles et commentées</li>
+            <li>Sujet personnel (Elden Ring) qui a maintenu la motivation sur toute la durée</li>
+            <li>Maîtrise de la décomposition des flux temporels</li>
+            <li>Elément central de l'analyse de données et donc de mon cursus</li>
           </ul>
         </div>
         <div>
           <p class="bilan-col-label delta">Points à améliorer</p>
           <ul class="bilan-items delta">
-            <li><!-- TODO --> Mieux justifier le choix de l'ordre ARIMA (ACF/PACF plus rigoureuse)</li>
-            <li><!-- TODO --> Intégrer des variables exogènes (SARIMAX) pour capter l'effet des DLC</li>
+            <li>Être plus rigoureux dans mes traitements de données</li>
+            <li>Traiter des données plus complexes, mettre en application mes compétences dans un cadre nouveau</li>
           </ul>
         </div>
         <div class="bilan-note">
-          <!-- TODO : réflexion personnelle -->
-          C'est la SAE qui m'a donné le plus envie de poursuivre vers l'analyse de données :
-          partir d'une question concrète - "pourquoi le pic de joueurs en juin 2024 ?" - et y
-          répondre avec des outils statistiques rigoureux est exactement le type de travail
-          que je souhaite faire à terme. Le passage à Python pour cette SAE (après R en S3.02)
-          a aussi confirmé mon attrait pour cet écosystème.
+          Cette SAE est celle qui a nécessité le plus d'apprentissages théoriques : mathématiques, modèles statistiques... 
+          Réussir à établir des estimations satisfaisantes de phénomènes réels est donc extrêment gratifiant, et donne du sens à mon cursus de BUT SD.
         </div>
       </div>
     </section>
@@ -208,11 +181,12 @@ print(fit.<span class="t-fn">summary</span>())</pre>
     <!-- PAGINATION -->
     <nav class="sae-pagination" aria-label="Navigation entre SAE">
       <a href="sae_3_vcod_04.html" class="page-nav-link">
-        <span class="page-nav-direction">← Précédent</span>
-        <span class="page-nav-title">Conformité RGPD &amp; analyse de risque</span>
-        <span class="page-nav-id">SAE 3.VCOD.04</span>
+        ← Précédent
       </a>
-      <span></span><!-- dernière SAE, pas de suivant -->
+      <a href="../academic.html" class="page-nav-link home">
+        Retour aux travaux
+      </a>
+      <span></span>
     </nav>
 
   </main>

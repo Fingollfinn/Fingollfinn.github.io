@@ -33,7 +33,7 @@
         <p class="sae-hero-desc">
           Conception et alimentation d'un entrepôt de données à partir de sources hétérogènes,
           en mobilisant des outils ETL no-code / low-code - du schéma en étoile
-          jusqu'au chargement incrémental en base relationnelle.
+          jusqu'au chargement en base relationnelle.
         </p>
         <div class="stack-row">
           <span class="stack-tag">Knime</span>
@@ -44,6 +44,21 @@
         </div>
       </div>
     </header>
+
+
+    <!-- PAGINATION -->
+    <nav class="sae-pagination" aria-label="Navigation entre SAE">
+      <a href="sae_4_02.html" class="page-nav-link">
+        ← Précédent
+      </a>
+      <a href="../academic.html" class="page-nav-link home">
+        Retour aux travaux
+      </a>
+      <a href="sae_3_vcod_04.html" class="page-nav-link next">
+        Suivant →
+      </a>
+    </nav>
+
 
     <!-- CONTEXTE & OBJECTIFS -->
     <section class="detail-section">
@@ -92,36 +107,6 @@
       </div>
     </section>
 
-    <!-- CODE SNIPPET -->
-    <section class="detail-section">
-      <div class="section-header"><h2>Extrait de code</h2></div>
-      <div class="terminal-wrap">
-        <div class="terminal-bar">
-          <div class="terminal-dots">
-            <span class="dot-red"></span>
-            <span class="dot-yellow"></span>
-            <span class="dot-green"></span>
-          </div>
-          <span class="terminal-filename"><!-- TODO : ex: load_dim_produit.sql --></span>
-        </div>
-        <div class="terminal-body">
-<pre><span class="t-cm">-- TODO - coller ici votre requête ou extrait de flux le plus représentatif</span>
-<span class="t-cm">-- Exemple : chargement incrémental d'une dimension</span>
-
-<span class="t-kw">INSERT INTO</span> dim_produit (id_produit, libelle, categorie, date_maj)
-<span class="t-kw">SELECT</span>
-    src.id          <span class="t-kw">AS</span> id_produit,
-    <span class="t-fn">TRIM</span>(src.nom)   <span class="t-kw">AS</span> libelle,
-    src.categorie,
-    <span class="t-fn">NOW</span>()           <span class="t-kw">AS</span> date_maj
-<span class="t-kw">FROM</span> staging_produits src
-<span class="t-kw">LEFT JOIN</span> dim_produit d <span class="t-kw">ON</span> src.id = d.id_produit
-<span class="t-kw">WHERE</span> d.id_produit <span class="t-kw">IS NULL</span>   <span class="t-cm">-- nouveaux enregistrements seulement</span>
-  <span class="t-kw">OR</span> src.nom &lt;&gt; d.libelle;    <span class="t-cm">-- ou libellé modifié (SCD type 1)</span></pre>
-        </div>
-      </div>
-    </section>
-
     <!-- GALERIE -->
     <section class="detail-section">
       <div class="section-header"><h2>Captures &amp; livrables</h2></div>
@@ -136,10 +121,10 @@
         </div>
         <div class="gallery-slot">
           <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>
-          <span class="slot-label"><!-- TODO --><br>Base DWH peuplée</span>
+          <span class="slot-label"><!-- TODO --><br>Base de données peuplée</span>
         </div>
       </div>
-      <p class="gallery-caption">Remplacer chaque slot par une balise &lt;img&gt; pointant vers vos captures.</p>
+      <p class="gallery-caption">Captures extraites du pipeline Knime établi</p>
     </section>
 
     <!-- COMPÉTENCES -->
@@ -151,12 +136,8 @@
           <p>Conception du modèle dimensionnel et automatisation de l'alimentation ETL depuis des sources hétérogènes.</p>
         </div>
         <div class="comp-detail-card">
-          <span class="comp-pill pill-analyser"><span class="dot"></span>Analyser</span>
-          <p>Audit qualité des données sources, identification des incohérences et définition des règles de transformation.</p>
-        </div>
-        <div class="comp-detail-card">
-          <span class="comp-pill pill-developper"><span class="dot"></span>Développer</span>
-          <p>Développement de flux Knime structurés, requêtes SQL d'intégration incrémentale, documentation technique.</p>
+          <span class="comp-pill pill-valoriser"><span class="dot"></span>Valoriser</span>
+          <p>Présentation du travail tout au long du développement, mise en valeur de mes compétences en bases de données</p>
         </div>
       </div>
     </section>
@@ -168,40 +149,27 @@
         <div>
           <p class="bilan-col-label plus">Points forts</p>
           <ul class="bilan-items plus">
-            <li><!-- TODO --> Bonne compréhension des modèles dimensionnels et de leurs enjeux</li>
-            <li><!-- TODO --> Pipeline ETL fonctionnel et reproductible</li>
-            <li><!-- TODO --> Rigueur sur la qualité des données en entrée</li>
+            <li>Bonne compréhension des modèles dimensionnels et de leurs enjeux</li>
+            <li>Pipeline ETL fonctionnel et reproductible</li>
+            <li>Rigueur sur la qualité des données en entrée</li>
+            <li>Traitement de différents types de données</li>
           </ul>
         </div>
         <div>
           <p class="bilan-col-label delta">Points à améliorer</p>
           <ul class="bilan-items delta">
-            <li><!-- TODO --> Explorer les SCD de type 2 (historisation des dimensions)</li>
-            <li><!-- TODO --> Passer à un outil code-first (dbt) pour gagner en maintenabilité</li>
+            <li>Explorer toutes les possibilités offertes par Knime/Talend</li>
+            <li>Passer à un outil code-first pour gagner en compréhension</li>
           </ul>
         </div>
         <div class="bilan-note">
-          <!-- TODO : réflexion personnelle -->
           Cette SAE m'a donné une première expérience concrète de ce que signifie "mettre de la donnée en production".
           La partie qualité - souvent sous-estimée - s'est révélée la plus chronophage et la plus instructive :
           des données mal nettoyées en amont contaminent toutes les analyses en aval.
+          Par ailleurs, l'utilisation d'outils no-code apparait maintenant comme essentielle dans le travail moderne.
         </div>
       </div>
     </section>
-
-    <!-- PAGINATION -->
-    <nav class="sae-pagination" aria-label="Navigation entre SAE">
-      <a href="sae_4_02.html" class="page-nav-link">
-        <span class="page-nav-direction">← Précédent</span>
-        <span class="page-nav-title">Reporting d'analyse multivariée - Dashboard R Shiny</span>
-        <span class="page-nav-id">SAE 4.02</span>
-      </a>
-      <a href="sae_3_vcod_04.html" class="page-nav-link next">
-        <span class="page-nav-direction">Suivant →</span>
-        <span class="page-nav-title">Conformité RGPD &amp; analyse de risque sur données</span>
-        <span class="page-nav-id">SAE 3.VCOD.04</span>
-      </a>
-    </nav>
 
   </main>
 

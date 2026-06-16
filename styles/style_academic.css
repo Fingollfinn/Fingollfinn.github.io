@@ -424,8 +424,7 @@ table.matrix tr:hover td:first-child { background: rgba(99,179,237,0.06); }
 
 /* ─── 5. SAE DETAIL PROJECT TEMPLATES ─── */
 .sae-hero {
-    padding-top: calc(60px + 4rem);
-    padding-bottom: 3rem;
+    padding: calc(60px + 3rem) 0 3.5rem;
     border-bottom: 1px solid var(--border);
     margin-bottom: 4rem;
     display: grid;
@@ -769,62 +768,29 @@ table.matrix tr:hover td:first-child { background: rgba(99,179,237,0.06); }
 }
 
 /* Pagination Context Hooks */
-.sae-pagination {
-    display: grid;
-    grid-template-columns: auto auto;
-    justify-content: space-between;
-    gap: 1rem;
-    margin: 4rem 0 5rem;
-    border-top: 1px solid var(--border);
-    padding-top: 2rem;
+.sae-pagination{
+    display:flex;
+    justify-content:space-between;
+
+    margin:1rem 0 2rem;
+    border:none;
+    padding:0;
 }
 
-.page-nav-link {
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-    padding: 1.25rem 1.5rem;
-    background: var(--bg-surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    text-decoration: none;
-    transition: border-color 0.2s, background 0.2s;
+.page-nav-link{
+    padding:0.4rem 10px;
+    border:none;
+    background:transparent;
+
+    font: inherit;   /* reprend la police du site */
+    color: inherit;  /* reprend la couleur du site */
+
+    text-decoration:none;
 }
 
-.page-nav-link:hover {
-    border-color: var(--border-hover);
-    background: var(--accent-glow);
-}
-
-.page-nav-link.next { 
-    text-align: right; 
-    margin-right: auto;
-}
-
-.page-nav-direction {
-    font-size: 10px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-}
-
-.page-nav-link.next .page-nav-direction { justify-content: flex-end; }
-
-.page-nav-title {
-    font-family: var(--font-display);
-    font-size: 13px;
-    font-weight: 600;
-    color: var(--text-primary);
-    line-height: 1.3;
-}
-
-.page-nav-id {
-    font-size: 10px;
-    color: var(--text-muted);
-    letter-spacing: 0.06em;
+.page-nav-link:hover{
+    text-decoration:underline;
+    color: #63b3ed;
 }
 
 
