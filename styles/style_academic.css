@@ -624,15 +624,14 @@ table.matrix tr:hover td:first-child { background: rgba(99,179,237,0.06); }
     white-space: pre;
 }
 
-.t-kw  { color: #c678dd; } 
-.t-fn  { color: #61afef; } 
-.t-str { color: #98c379; } 
-.t-cm  { color: #5c6370; font-style: italic; } 
-.t-nb  { color: #e5c07b; } 
-.t-op  { color: #56b6c2; } 
-.t-num { color: #d19a66; } 
-
 /* Project Galleries & Figures */
+.gallery-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -659,9 +658,14 @@ table.matrix tr:hover td:first-child { background: rgba(99,179,237,0.06); }
     overflow: hidden;
     cursor: pointer;
     transition: border-color 0.2s;
+    overflow: hidden;
 }
 
-.gallery-slot:hover { border-color: rgba(99, 179, 237, 0.5); }
+.gallery-slot:hover { 
+    border-color: rgba(99, 179, 237, 0.5); 
+    
+}
+
 
 .gallery-slot img {
     position: absolute;
@@ -708,6 +712,70 @@ table.matrix tr:hover td:first-child { background: rgba(99,179,237,0.06); }
     font-size: 12px;
     color: var(--text-muted);
     line-height: 1.7;
+}
+
+/* Zoom in on images */
+.modal {
+  border: none;
+  border-radius: 8px;
+  padding: 0;
+  max-width: 90vw;
+  max-height: 90vh;
+  background: transparent;
+}
+
+/* Style the dark backdrop (native to the <dialog> element) */
+.modal::backdrop {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+/* Make sure the image fits the screen */
+#modal-image {
+  display: block;
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain; /* Ensures the whole image is visible */
+  border-radius: 4px;
+}
+
+/* Simple close button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: white;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+}
+
+/* Reset default figure margins and align items */
+.modal-figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Make sure the image leaves a little room for the text */
+#modal-image {
+  display: block;
+  max-width: 100%;
+  max-height: 80vh; /* Reduced from 90vh to leave room for the caption */
+  object-fit: contain; 
+  border-radius: 4px;
+}
+
+/* Style the caption text */
+#modal-caption {
+  color: #ffffff; /* White text */
+  margin-top: 15px;
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: 500;
 }
 
 /* Academic Retrospective (Bilan) */

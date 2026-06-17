@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../../styles/style_academic.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
 </head>
 <body>
 
@@ -102,51 +103,42 @@
             <span class="dot-yellow"></span>
             <span class="dot-green"></span>
           </div>
-          <span class="terminal-filename"><!-- TODO : ex: server.R ou acp_module.R --></span>
+          <span class="terminal-filename">global.R</span>
         </div>
         <div class="terminal-body">
-<pre><span class="t-cm"># TODO - coller ici votre extrait le plus représentatif</span>
-<span class="t-cm"># Exemple : ACP avec FactoMineR + rendu Shiny réactif</span>
-
-<span class="t-kw">library</span>(FactoMineR)
-<span class="t-kw">library</span>(factoextra)
-
-<span class="t-cm"># ACP sur données normalisées</span>
-res_pca &lt;- <span class="t-fn">PCA</span>(df_scaled, graph = <span class="t-nb">FALSE</span>)
-
-<span class="t-cm"># Serveur Shiny - output réactif</span>
-output$<span class="t-fn">biplot</span> &lt;- <span class="t-fn">renderPlot</span>({
-  <span class="t-fn">fviz_pca_biplot</span>(
-    res_pca,
-    axes    = c(input$<span class="t-fn">dim1</span>, input$<span class="t-fn">dim2</span>),
-    repel   = <span class="t-nb">TRUE</span>,
-    col.ind = <span class="t-str">"cos2"</span>,
-    gradient.cols = c(<span class="t-str">"#0d1117"</span>, <span class="t-str">"#63b3ed"</span>)
-  )
-})</pre>
+          <pre>
+            <code class="language-r">
+# Préparation des Tables AFC
+tab_contingence_ALD <- ALD %>%
+  select(departement_nom, ald, effectif) %>%
+  pivot_wider(names_from = ald, values_from = effectif, values_fill = 0) %>%
+  as.data.frame()
+rownames(tab_contingence_ALD) <- tab_contingence_ALD$departement_nom
+tab_contingence_ALD <- tab_contingence_ALD[, -1]</code>
+          </pre>
         </div>
       </div>
     </section>
 
     <!-- GALERIE -->
-    <section class="detail-section">
-      <div class="section-header"><h2>Captures &amp; livrables</h2></div>
-      <div class="gallery-grid">
-        <div class="gallery-slot">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><line x1="12" y1="3" x2="12" y2="21"/><path d="M3 9h18M3 15h18"/></svg>
-          <span class="slot-label"><!-- TODO --><br>Cercle des corrélations (ACP)</span>
-        </div>
-        <div class="gallery-slot">
-          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          <span class="slot-label"><!-- TODO --><br>Dendrogramme CAH</span>
-        </div>
-        <div class="gallery-slot">
-          <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-          <span class="slot-label"><!-- TODO --><br>Interface Shiny</span>
-        </div>
+  <section class="detail-section">
+    <div class="section-header"><h2>Captures &amp; livrables</h2></div>
+    <div class="gallery-grid">
+      <div class="gallery-slot">
+        <img src="../../assets/dendrogramme_rshiny.png" alt="Dendrogramme, clusters identifiés" class="gallery-image">
       </div>
-      <p class="gallery-caption">Remplacer chaque slot par une balise &lt;img&gt; pointant vers vos captures.</p>
-    </section>
+      <div class="gallery-slot">
+        <img src="../../assets/map_rshiny.png" alt="arte avec clusters" class="gallery-image">
+      </div>
+      <div class="gallery-slot">
+        <img src="../../assets/menu_app_rshiny.png" alt="Interface Shiny" class="gallery-image">
+      </div>
+      <div class="gallery-slot">
+        <img src="../../assets/acp_circle_rshiny.png" alt="Cercle ACP" class="gallery-image">
+      </div>
+    </div>
+    <p class="gallery-caption">Captures d'écrans issues de l'application rendue</p>
+  </section>
 
     <!-- COMPÉTENCES -->
     <section class="detail-section">
@@ -178,16 +170,16 @@ output$<span class="t-fn">biplot</span> &lt;- <span class="t-fn">renderPlot</spa
         <div>
           <p class="bilan-col-label plus">Points forts</p>
           <ul class="bilan-items plus">
-            <li><!-- TODO --> Bonne maîtrise de la chaîne ACP → interprétation → restitution</li>
-            <li><!-- TODO --> Interface Shiny ergonomique et réactive</li>
-            <li><!-- TODO --> Narration analytique claire pour un public non-statisticien</li>
+            <li>Bonne maîtrise de la chaîne ACP → interprétation → restitution</li>
+            <li>Interface Shiny ergonomique et réactive</li>
+            <li>Narration analytique claire pour un public non-statisticien</li>
           </ul>
         </div>
         <div>
           <p class="bilan-col-label delta">Points à améliorer</p>
           <ul class="bilan-items delta">
-            <li><!-- TODO --> Aller plus loin dans la validation des clusters (indice de Silhouette)</li>
-            <li><!-- TODO --> Déploiement en ligne de l'application Shiny (shinyapps.io)</li>
+            <li>Aller plus loin dans la validation des clusters (indice de Silhouette)</li>
+            <li>Améliorer ma compréhension des résultats modélisés, en compléments de mes compétences informatiques</li>
           </ul>
         </div>
         <div class="bilan-note">
@@ -222,6 +214,16 @@ output$<span class="t-fn">biplot</span> &lt;- <span class="t-fn">renderPlot</spa
       <a href="mailto:dotantoine67280@gmail.com">Email</a>
     </div>
   </footer>
+  
+  <dialog id="image-modal" class="modal">
+    <button id="close-modal" class="close-btn">&times;</button>
+    <figure class="modal-figure">
+      <img id="modal-image" src="" alt="Enlarged view">
+      <figcaption id="modal-caption"></figcaption> </figure>
+  </dialog>
 
+  <script src="../../scripts/zoomin.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
 </body>
 </html>
