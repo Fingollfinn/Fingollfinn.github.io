@@ -6,6 +6,7 @@
   <title>SAE 3.02 - Intégration ETL / Datawarehouse</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../../styles/style_academic.css" />
 </head>
@@ -65,7 +66,6 @@
       <div class="section-header"><h2>Contexte &amp; objectifs</h2></div>
       <div class="context-block">
         <p>
-          <!-- TODO : décrire le cas d'usage et les sources de données -->
           Cette SAE couvre la compétence <strong>Traiter</strong> dans sa dimension la plus technique :
           construire une architecture de données pérenne à partir de sources brutes hétérogènes.
           L'enjeu central était de concevoir un schéma relationnel en étoile cohérent, puis
@@ -84,7 +84,7 @@
       </ul>
     </section>
 
-    <!-- CE QUE J'AI FAIT -->
+        <!-- CE QUE J'AI FAIT -->
     <section class="detail-section">
       <div class="section-header"><h2>Ce que j'ai fait</h2></div>
       <div class="tasks-grid">
@@ -107,6 +107,32 @@
       </div>
     </section>
 
+    <!-- CODE SNIPPET -->
+    <section class="detail-section">
+      <div class="section-header"><h2>Extrait de code</h2></div>
+      <div class="terminal-wrap">
+        <div class="terminal-bar">
+          <div class="terminal-dots">
+            <span class="dot-red"></span>
+            <span class="dot-yellow"></span>
+            <span class="dot-green"></span>
+          </div>
+          <span class="terminal-filename">schema_client.sql</span>
+        </div>
+        <div class="terminal-body">
+          <pre>
+            <code class="language-sql">
+CREATE TABLE `client` (
+  `code_client` int(11) NOT NULL,
+  `nom_client` varchar(20) NOT NULL,
+  `code_type_client` varchar(10) NOT NULL,
+  `libelle_type` varchar(12) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_uca1400_ai_ci;</code>
+          </pre>
+        </div>
+      </div>
+    </section>
+    
     <!-- GALERIE -->
     <section class="detail-section">
       <div class="section-header"><h2>Captures &amp; livrables</h2></div>
@@ -114,8 +140,11 @@
         <div class="gallery-slot">
           <img src="../../assets/flux_knime.png" alt="Flux de données Knime" class="gallery-image">
         </div>
+        <div class="gallery-slot">
+          <img src="../../assets/dico_data_knime.png" alt="Extrait du dictionnaire de données fourni avec le travail" class="gallery-image">
+        </div>
       </div>
-      <p class="gallery-caption">Captures d'écrans issues de l'application rendue</p>
+      <p class="gallery-caption">Captures d'écrans issues du flux de données Knime</p>
     </section>
 
     <!-- COMPÉTENCES -->
@@ -155,9 +184,8 @@
         </div>
         <div class="bilan-note">
           Cette SAE m'a donné une première expérience concrète de ce que signifie "mettre de la donnée en production".
-          La partie qualité - souvent sous-estimée - s'est révélée la plus chronophage et la plus instructive :
-          des données mal nettoyées en amont contaminent toutes les analyses en aval.
-          Par ailleurs, l'utilisation d'outils no-code apparait maintenant comme essentielle dans le travail moderne.
+          La partie qualité des données, nettoyage et moissonnage, s'est révélée la plus fastidieuse, mais est essentielle au bon fonctionnement d'un pipeline de données.
+          Par ailleurs, l'utilisation d'outils no-code apparait maintenant comme essentielle dans le travail moderne (et est largement promue par les recruteurs)
         </div>
       </div>
     </section>
@@ -181,6 +209,8 @@
   </dialog>
 
   <script src="../../scripts/zoomin.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
 
 </body>
 </html>
