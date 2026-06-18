@@ -1,4 +1,36 @@
-/* ─── 1. GLOBALS, TOKENS & RESET ─── */
+/* ==========================================================================
+   TABLE OF CONTENTS
+   ==========================================================================
+   01. GLOBALS, TOKENS & RESET
+       - Reset
+       - Variables (Colors, Fonts)
+       - Base HTML/Body styles
+   02. SHARED LAYOUT & NAVIGATION
+       - Navbar
+       - Footer
+   03. REUSABLE UI COMPONENTS
+       - Pills & Tags
+       - Buttons
+       - Section Headers
+   04. DASHBOARD & INDEX VIEW
+       - Page Header
+       - SAE Cards
+       - Matrix Table
+   05. SAE DETAIL PROJECT TEMPLATES
+       - 5.1 Hero Section
+       - 5.2 Content Blocks & Objectives
+       - 5.3 Code & Terminal Emulation
+       - 5.4 Image Galleries & Modals
+       - 5.5 Retrospective (Bilan)
+       - 5.6 Pagination
+   06. RESPONSIVE MEDIA BREAKPOINTS
+   ========================================================================== */
+
+
+/* ==========================================================================
+   01. GLOBALS, TOKENS & RESET
+   ========================================================================== */
+
 *, *::before, *::after { 
     box-sizing: border-box; 
     margin: 0; 
@@ -51,7 +83,11 @@ main {
     padding: 0 clamp(1.5rem, 5vw, 3rem);
 }
 
-/* ─── 2. SHARED LAYOUT & NAVIGATION ─── */
+
+/* ==========================================================================
+   02. SHARED LAYOUT & NAVIGATION
+   ========================================================================== */
+
 nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
@@ -59,7 +95,6 @@ nav {
     height: 60px;
     background: rgba(13, 17, 23, 0.85);
     backdrop-filter: blur(12px);
-
 }
 
 .nav-logo {
@@ -110,7 +145,11 @@ footer a:hover { color: var(--accent); }
 
 .footer-links { display: flex; gap: 1.5rem; }
 
-/* ─── 3. REUSABLE UI COMPONENTS (PILLS, TAGS, BUTTONS) ─── */
+
+/* ==========================================================================
+   03. REUSABLE UI COMPONENTS
+   ========================================================================== */
+
 .comp-legend {
     display: flex;
     flex-wrap: wrap;
@@ -135,6 +174,7 @@ footer a:hover { color: var(--accent); }
     border-radius: 50%;
 }
 
+/* Competence Modifiers */
 .pill-traiter   { background: var(--c-traiter);   color: var(--accent);  border-color: rgba(99,179,237,0.3); }
 .pill-traiter   .dot { background: var(--accent); }
 .pill-analyser  { background: var(--c-analyser);  color: var(--green);   border-color: rgba(126,226,168,0.3); }
@@ -211,7 +251,11 @@ footer a:hover { color: var(--accent); }
     background: var(--border);
 }
 
-/* ─── 4. DASHBOARD & INDEX VIEW STYLES ─── */
+
+/* ==========================================================================
+   04. DASHBOARD & INDEX VIEW
+   ========================================================================== */
+
 .page-header {
     padding-top: calc(60px + 4rem);
     padding-bottom: 3rem;
@@ -377,7 +421,7 @@ footer a:hover { color: var(--accent); }
     flex-wrap: wrap;
 }
 
-/* Matrix Table Components */
+/* --- Matrix Table Components --- */
 .matrix-section { margin-bottom: 5rem; }
 
 .matrix-wrap {
@@ -422,7 +466,11 @@ table.matrix tr:hover td:first-child { background: rgba(99,179,237,0.06); }
 .check { font-size: 14px; }
 
 
-/* ─── 5. SAE DETAIL PROJECT TEMPLATES ─── */
+/* ==========================================================================
+   05. SAE DETAIL PROJECT TEMPLATES
+   ========================================================================== */
+
+/* --- 5.1 Hero Section --- */
 .sae-hero {
     padding: calc(60px + 3rem) 0 3.5rem;
     border-bottom: 1px solid var(--border);
@@ -501,6 +549,7 @@ table.matrix tr:hover td:first-child { background: rgba(99,179,237,0.06); }
     background: var(--accent-glow);
 }
 
+/* --- 5.2 Content Blocks & Objectives --- */
 .detail-section {
     margin-bottom: 4rem;
 }
@@ -579,7 +628,30 @@ table.matrix tr:hover td:first-child { background: rgba(99,179,237,0.06); }
     line-height: 1.7;
 }
 
-/* Code Snippets & Terminal Emulation */
+.comp-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1.25rem;
+}
+
+.comp-detail-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.comp-detail-card p {
+    font-size: 12px;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+/* --- 5.3 Code & Terminal Emulation --- */
 .terminal-wrap {
     margin-top: 1.25rem;
     border: 1px solid var(--border);
@@ -624,7 +696,7 @@ table.matrix tr:hover td:first-child { background: rgba(99,179,237,0.06); }
     white-space: pre;
 }
 
-/* Project Galleries & Figures */
+/* --- 5.4 Image Galleries & Modals --- */
 .gallery-image {
   width: 100%;
   height: 100%;
@@ -658,14 +730,11 @@ table.matrix tr:hover td:first-child { background: rgba(99,179,237,0.06); }
     overflow: hidden;
     cursor: pointer;
     transition: border-color 0.2s;
-    overflow: hidden;
 }
 
 .gallery-slot:hover { 
     border-color: rgba(99, 179, 237, 0.5); 
-    
 }
-
 
 .gallery-slot img {
     position: absolute;
@@ -691,30 +760,7 @@ table.matrix tr:hover td:first-child { background: rgba(99,179,237,0.06); }
     margin-top: 0.5rem;
 }
 
-.comp-detail-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
-    margin-top: 1.25rem;
-}
-
-.comp-detail-card {
-    background: var(--bg-surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    padding: 1.25rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-}
-
-.comp-detail-card p {
-    font-size: 12px;
-    color: var(--text-muted);
-    line-height: 1.7;
-}
-
-/* Zoom in on images */
+/* Zoom Modal */
 .modal {
   border: none;
   border-radius: 8px;
@@ -724,21 +770,10 @@ table.matrix tr:hover td:first-child { background: rgba(99,179,237,0.06); }
   background: transparent;
 }
 
-/* Style the dark backdrop (native to the <dialog> element) */
 .modal::backdrop {
   background: rgba(0, 0, 0, 0.8);
 }
 
-/* Make sure the image fits the screen */
-#modal-image {
-  display: block;
-  max-width: 100%;
-  max-height: 90vh;
-  object-fit: contain; /* Ensures the whole image is visible */
-  border-radius: 4px;
-}
-
-/* Simple close button */
 .close-btn {
   position: absolute;
   top: 10px;
@@ -752,7 +787,6 @@ table.matrix tr:hover td:first-child { background: rgba(99,179,237,0.06); }
   height: 35px;
 }
 
-/* Reset default figure margins and align items */
 .modal-figure {
   margin: 0;
   display: flex;
@@ -760,25 +794,23 @@ table.matrix tr:hover td:first-child { background: rgba(99,179,237,0.06); }
   align-items: center;
 }
 
-/* Make sure the image leaves a little room for the text */
 #modal-image {
   display: block;
   max-width: 100%;
-  max-height: 80vh; /* Reduced from 90vh to leave room for the caption */
+  max-height: 80vh; 
   object-fit: contain; 
   border-radius: 4px;
 }
 
-/* Style the caption text */
 #modal-caption {
-  color: #ffffff; /* White text */
+  color: #ffffff; 
   margin-top: 15px;
   font-size: 1.2rem;
   text-align: center;
   font-weight: 500;
 }
 
-/* Academic Retrospective (Bilan) */
+/* --- 5.5 Retrospective (Bilan) --- */
 .bilan-block {
     background: var(--bg-surface);
     border: 1px solid var(--border);
@@ -835,11 +867,10 @@ table.matrix tr:hover td:first-child { background: rgba(99,179,237,0.06); }
     border-top: 1px solid var(--border);
 }
 
-/* Pagination Context Hooks */
+/* --- 5.6 Pagination --- */
 .sae-pagination{
     display:flex;
     justify-content:space-between;
-
     margin:1rem 0 2rem;
     border:none;
     padding:0;
@@ -849,10 +880,8 @@ table.matrix tr:hover td:first-child { background: rgba(99,179,237,0.06); }
     padding:0.4rem 10px;
     border:none;
     background:transparent;
-
-    font: inherit;   /* reprend la police du site */
-    color: inherit;  /* reprend la couleur du site */
-
+    font: inherit;
+    color: inherit;
     text-decoration:none;
 }
 
@@ -862,7 +891,10 @@ table.matrix tr:hover td:first-child { background: rgba(99,179,237,0.06); }
 }
 
 
-/* ─── 6. UNIFIED RESPONSIVE MEDIA BREAKPOINTS ─── */
+/* ==========================================================================
+   06. RESPONSIVE MEDIA BREAKPOINTS
+   ========================================================================== */
+
 @media (max-width: 640px) {
     /* Navigation adjustments */
     nav { padding: 0 1.25rem; }

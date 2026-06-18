@@ -1,3 +1,5 @@
+// zoomin.js used for zooming in on all the images
+
 document.addEventListener("DOMContentLoaded", () => {
   const modal = document.getElementById("image-modal");
   const modalImage = document.getElementById("modal-image");
