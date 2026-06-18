@@ -6,6 +6,7 @@
   <title>SAE 3.03 - Analyse temporelle Elden Ring</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../../styles/style_academic.css" />
 </head>
@@ -59,7 +60,7 @@
         <p>
           Le choix du sujet, ici le nombre de joueur d'Elden Ring, m'a permis d'ancrer mes analyses dans
           un contexte que je maitrise, permettant de me concentrer sur les aspects techniques plus complexes.
-        </p>
+        </p><
       </div>
       <ul class="objectives-list">
         <li>Extraire et nettoyer les données historiques de joueurs depuis SteamDB</li>
@@ -101,40 +102,47 @@
     <section class="detail-section">
       <div class="section-header"><h2>Extrait de code</h2></div>
       <div class="terminal-wrap">
-        <div class="terminal-bar">
+        <div class="terminal-bar"><
           <div class="terminal-dots">
             <span class="dot-red"></span>
             <span class="dot-yellow"></span>
             <span class="dot-green"></span>
           </div>
-          <span class="terminal-filename"><!-- Coller script R --></span>
+          <span class="terminal-filename">analyse_temporelle.R</span>
         </div>
         <div class="terminal-body">
-<pre>
-  <span class="t-cm"># TODO - retrouver script R</span>
-</pre>
+          <pre>
+            <code class="language-r">
+# Extrait de code pour l'analyse des données à court terme avec algorithme
+
+# Prévision à court terme, modele ets
+fitles <- ets(data$Average.Players, model = "MNN", opt.crit = "mse")
+summary(fitles)
+predles <- forecast(fitles, h = 7)
+
+# Graphique test
+test_data <- append(data$Average.Players, predles$lower)
+plot(test_data, type = "l")
+abline(v = 56, col="red")
+</code>
+          </pre>
         </div>
       </div>
     </section>
+
 
     <!-- GALERIE -->
     <section class="detail-section">
       <div class="section-header"><h2>Captures &amp; livrables</h2></div>
       <div class="gallery-grid">
         <div class="gallery-slot">
-          <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          <span class="slot-label"><!-- TODO --><br>Série temporelle brute + événements</span>
+          <img src="../../assets/rep_donnees_simple.png" alt="Représentation de données simple, Code R" class="gallery-image">
         </div>
         <div class="gallery-slot">
-          <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-          <span class="slot-label"><!-- TODO --><br>Décomposition STL</span>
-        </div>
-        <div class="gallery-slot">
-          <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 16l4-4 4 4 4-8"/></svg>
-          <span class="slot-label"><!-- TODO --><br>Prévision ARIMA vs réel</span>
+          <img src="../../assets/rep_donnees_moymobile.png" alt="Représentation des données lissées par moyenne mobile" class="gallery-image">
         </div>
       </div>
-      <p class="gallery-caption">Captures issues du travail de traitement de données sur les joueurs d'Elden Ring.</p>
+      <p class="gallery-caption">Captures d'écrans issues du flux de données Knime</p>
     </section>
 
     <!-- COMPÉTENCES -->
@@ -180,13 +188,15 @@
 
     <!-- PAGINATION -->
     <nav class="sae-pagination" aria-label="Navigation entre SAE">
-      <a href="sae_3_vcod_04.html" class="page-nav-link">
+      <a href="sae_3_02.html" class="page-nav-link">
         ← Précédent
       </a>
       <a href="../academic.html" class="page-nav-link home">
         Retour aux travaux
       </a>
-      <span></span>
+      <a href="sae_3_vcod_04.html" class="page-nav-link next">
+        Suivant →
+      </a>
     </nav>
 
   </main>
@@ -199,6 +209,17 @@
       <a href="mailto:dotantoine67280@gmail.com">Email</a>
     </div>
   </footer>
+
+  <dialog id="image-modal" class="modal">
+    <button id="close-modal" class="close-btn">&times;</button>
+    <figure class="modal-figure">
+      <img id="modal-image" src="" alt="Enlarged view">
+      <figcaption id="modal-caption"></figcaption> </figure>
+  </dialog>
+  <script src="../../scripts/zoomin.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script>
 
 </body>
 </html>

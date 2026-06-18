@@ -49,7 +49,6 @@
       <div class="section-header"><h2>Contexte &amp; objectifs</h2></div>
       <div class="context-block">
         <p>
-          <!-- TODO : décrire le jeu de données concerné (données Lego / Rebrickable) et le commanditaire fictif -->
           Cette SAE articule les compétences <strong>Valoriser</strong> et <strong>Traiter</strong>
           sous l'angle réglementaire. L'objectif était d'appliquer le cadre RGPD à un traitement
           de données réel issu de la SAE 3.VCOD.01 (collecte web automatisée), puis de produire
@@ -59,6 +58,10 @@
           La SAE a mis en lumière l'interdépendance entre choix techniques (scraping, stockage)
           et obligations légales : chaque décision de traitement porte des implications sur
           la minimisation et la sécurité des données.
+        </p>
+        <p>
+          Ce travail s'est révélé extrêment intéressant par la présence d'un enseignant spécialiste d'un domaine différents de celui des enseignants du BUT SD. 
+          Par ailleurs, j'ai réutilisé les compétences acquises avec cette SAE dans le cadre de mon stage au CNRS.
         </p>
       </div>
       <ul class="objectives-list">
@@ -83,65 +86,13 @@
         </div>
         <div class="task-item">
           <span class="task-item-num">03</span>
-          <p>Définition des mesures techniques : hachage des identifiants, suppression des quasi-identifiants, pseudonymisation des emails.</p>
+          <p>Apprentissages techniques sur les tenants et aboutissants de la gestion de données par rapoort au RGPD.</p>
         </div>
         <div class="task-item">
           <span class="task-item-num">04</span>
-          <p>Rédaction du rapport de conformité complet avec recommandations priorisées, à destination d'un DPO fictif.</p>
+          <p>Rédaction du rapport de conformité complet sur l'un des mes autres travaux universitaires.</p>
         </div>
       </div>
-    </section>
-
-    <!-- CODE SNIPPET -->
-    <section class="detail-section">
-      <div class="section-header"><h2>Extrait de code</h2></div>
-      <div class="terminal-wrap">
-        <div class="terminal-bar">
-          <div class="terminal-dots">
-            <span class="dot-red"></span>
-            <span class="dot-yellow"></span>
-            <span class="dot-green"></span>
-          </div>
-          <span class="terminal-filename"><!-- TODO : ex: anonymize.py --></span>
-        </div>
-        <div class="terminal-body">
-<pre><span class="t-cm"># TODO - coller ici votre extrait le plus représentatif</span>
-<span class="t-cm"># Exemple : pseudonymisation d'un champ sensible par hachage HMAC</span>
-
-<span class="t-kw">import</span> hmac, hashlib, os
-
-SECRET_KEY = os.environb[<span class="t-str">b"PSEUDONYM_KEY"</span>]
-
-<span class="t-kw">def</span> <span class="t-fn">pseudonymize</span>(value: str) -> str:
-    <span class="t-str">"""Remplacement déterministe mais non-réversible sans la clé."""</span>
-    token = hmac.<span class="t-fn">new</span>(SECRET_KEY, value.<span class="t-fn">encode</span>(), hashlib.sha256)
-    <span class="t-kw">return</span> token.<span class="t-fn">hexdigest</span>()[:<span class="t-num">16</span>]
-
-<span class="t-cm"># Application sur le DataFrame</span>
-df[<span class="t-str">"email_pseudo"</span>] = df[<span class="t-str">"email"</span>].<span class="t-fn">map</span>(pseudonymize)
-df.<span class="t-fn">drop</span>(columns=[<span class="t-str">"email"</span>], inplace=<span class="t-nb">True</span>)</pre>
-        </div>
-      </div>
-    </section>
-
-    <!-- GALERIE -->
-    <section class="detail-section">
-      <div class="section-header"><h2>Captures &amp; livrables</h2></div>
-      <div class="gallery-grid">
-        <div class="gallery-slot">
-          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-          <span class="slot-label"><!-- TODO --><br>Rapport de conformité</span>
-        </div>
-        <div class="gallery-slot">
-          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-          <span class="slot-label"><!-- TODO --><br>Matrice de risque</span>
-        </div>
-        <div class="gallery-slot">
-          <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          <span class="slot-label"><!-- TODO --><br>Schéma anonymisation</span>
-        </div>
-      </div>
-      <p class="gallery-caption">Extraits du diaporama de présentation de la conformité de nos travaux</p>
     </section>
 
     <!-- COMPÉTENCES -->
@@ -150,19 +101,15 @@ df.<span class="t-fn">drop</span>(columns=[<span class="t-str">"email"</span>], 
       <div class="comp-detail-grid">
         <div class="comp-detail-card">
           <span class="comp-pill pill-traiter"><span class="dot"></span>Traiter</span>
-          <p>Application concrète des principes de minimisation et de limitation de la conservation sur les données collectées.</p>
+          <p>Application concrète des principes de minimisation et de limitation de la conservation sur les données collectées, dans un cadre d'apprentissage.</p>
         </div>
         <div class="comp-detail-card">
           <span class="comp-pill pill-analyser"><span class="dot"></span>Analyser</span>
-          <p>Analyse de risque structurée : identification des menaces, cotation, priorisation des mesures correctives.</p>
+          <p>Analyse de risque structurée : identification des menaces, priorisation des mesures correctives.</p>
         </div>
         <div class="comp-detail-card">
           <span class="comp-pill pill-valoriser"><span class="dot"></span>Valoriser</span>
           <p>Production d'un rapport de conformité argumenté, lisible par un DPO ou un responsable métier.</p>
-        </div>
-        <div class="comp-detail-card">
-          <span class="comp-pill pill-developper"><span class="dot"></span>Développer</span>
-          <p>Implémentation technique des mesures d'anonymisation et pseudonymisation en Python.</p>
         </div>
       </div>
     </section>
@@ -174,38 +121,34 @@ df.<span class="t-fn">drop</span>(columns=[<span class="t-str">"email"</span>], 
         <div>
           <p class="bilan-col-label plus">Points forts</p>
           <ul class="bilan-items plus">
-            <li><!-- TODO --> Compréhension solide du cadre RGPD appliqué à un cas réel</li>
-            <li><!-- TODO --> Rapport structuré et directement exploitable par un DPO</li>
-            <li><!-- TODO --> Lien cohérent établi entre les choix techniques de la SAE 3.VCOD.01 et leurs implications légales</li>
+            <li>Compréhension solide du cadre RGPD appliqué à un cas réel</li>
+            <li>Rapport structuré et directement exploitable par un DPO</li>
+            <li>Lien cohérent établi entre les choix techniques de la SAE 3.VCOD.01 et leurs implications légales</li>
           </ul>
         </div>
         <div>
           <p class="bilan-col-label delta">Points à améliorer</p>
           <ul class="bilan-items delta">
-            <li><!-- TODO --> Approfondir les techniques d'anonymisation avancées (k-anonymat, l-diversité)</li>
-            <li><!-- TODO --> Intégrer une AIPD (Analyse d'Impact relative à la Protection des Données) formelle</li>
+            <li>Approfondir les techniques d'anonymisation (notamment au vu de mon travail de stage)</li>
+            <li>Réfléchir aux traitements de données à réaliser sur des données vraiment sensibles, dans un cadre professionnel</li>
           </ul>
         </div>
         <div class="bilan-note">
-          <!-- TODO : réflexion personnelle -->
-          Cette SAE a changé ma façon de concevoir un pipeline de données : je pense désormais
-          à la conformité dès la phase de conception, et non comme une étape de contrôle finale.
-          C'est un réflexe directement transférable en contexte professionnel.
+          Cette SAE, différente de tous mes autres apprentissages, m'a beaucoup intéressé : ouverture sur le droit, réflexion sur les métadonnées...
+          J'ai par ailleurs mis à profit ces apprentissages dans le cadre de mon stage, à une échelle plus grande, plus professionnelle.
         </div>
       </div>
     </section>
 
     <!-- PAGINATION -->
     <nav class="sae-pagination" aria-label="Navigation entre SAE">
-      <a href="sae_3_02.html" class="page-nav-link">
+      <a href="sae_3_03.html" class="page-nav-link">
         ← Précédent
       </a>
       <a href="../academic.html" class="page-nav-link home">
         Retour aux travaux
       </a>
-      <a href="sae_3_03.html" class="page-nav-link next">
-        Suivant →
-      </a>
+      <span></span>
     </nav>
 
   </main>
