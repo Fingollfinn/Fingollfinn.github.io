@@ -49,6 +49,9 @@
     --fs-base: 17px;
     --fs-h3: 1.2rem;
     --fs-h2: 1.45rem;
+
+    /* Hauteur de la nav fixe */
+    --nav-h: 60px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -91,7 +94,7 @@ body > nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 clamp(1.5rem, 5vw, 4rem);
-    height: 60px;
+    height: var(--nav-h);
     background: var(--nav-bg);
     backdrop-filter: blur(12px);
 }
@@ -169,6 +172,7 @@ footer a:hover { color: var(--accent); }
 /* ─── RESPONSIVE ─── */
 @media (max-width: 640px) {
     body > nav { padding: 0 1rem; gap: 1rem; }
-    .nav-links { gap: 0.9rem; }
-    .nav-links a { font-size: var(--fs-xs); white-space: nowrap; }
+    .nav-logo { padding-block: 0.6rem; }
+    .nav-links { gap: 0.5rem; }
+    .nav-links a { display: block; padding: 0.6rem 0.25rem; white-space: nowrap; }
 }

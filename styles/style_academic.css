@@ -110,7 +110,7 @@
 
 /* --- Page Header --- */
 .page-header {
-    padding-top: calc(60px + 3rem);
+    padding-top: calc(var(--nav-h) + 3rem);
     padding-bottom: 2.5rem;
     border-bottom: 1px solid var(--border);
     margin-bottom: 2.5rem;
@@ -300,7 +300,7 @@ table.matrix th.th-developper { color: var(--comp-developper); }
 
 /* --- 5.1 Hero Section --- */
 .sae-hero {
-    padding: calc(60px + 3rem) 0 3rem;
+    padding: calc(var(--nav-h) + 3rem) 0 3rem;
     border-bottom: 1px solid var(--border);
     margin-bottom: 4rem;
 }
