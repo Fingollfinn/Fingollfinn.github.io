@@ -6,40 +6,40 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-    color-scheme: light;
+    color-scheme: dark;
 
-    /* Palette — papier, encre, rouge brique */
-    --bg: #f5f2eb;
-    --bg-surface: #efebe2;
-    --bg-card: #e7e1d5;
-    --accent: #b4432a;
-    --accent-hover: #8f3220;
-    --on-accent: #fbf9f4;
-    --text-primary: #1c1a17;
-    --text-secondary: #4a463f;
-    --text-muted: #6f695f;
-    --border: color-mix(in srgb, var(--text-primary) 16%, transparent);
-    --border-hover: color-mix(in srgb, var(--text-primary) 40%, transparent);
-    --accent-dim: color-mix(in srgb, var(--accent) 10%, transparent);
-    --accent-glow: color-mix(in srgb, var(--accent) 5%, transparent);
+    /* Palette — Solarized dark (Ethan Schoonover) */
+    --bg: #002b36;
+    --bg-surface: #073642;
+    --bg-card: #0d3d4a;
+    --accent: #b58900;
+    --accent-hover: #d3a21b;
+    --on-accent: #002b36;
+    --text-primary: #eee8d5;
+    --text-secondary: #93a1a1;
+    --text-muted: #839496;
+    --border: color-mix(in srgb, var(--text-secondary) 20%, transparent);
+    --border-hover: color-mix(in srgb, var(--text-secondary) 45%, transparent);
+    --accent-dim: color-mix(in srgb, var(--accent) 14%, transparent);
+    --accent-glow: color-mix(in srgb, var(--accent) 7%, transparent);
     --nav-bg: color-mix(in srgb, var(--bg) 94%, transparent);
 
-    /* Compétences BUT SD — tons d'encre sourds, distincts de l'accent */
-    --comp-traiter: #2f5d8a;
-    --comp-analyser: #3d7a4f;
-    --comp-valoriser: #8a4f8f;
-    --comp-developper: #9a6a12;
+    /* Compétences BUT SD — accents Solarized, distincts du jaune */
+    --comp-traiter: #268bd2;
+    --comp-analyser: #2aa198;
+    --comp-valoriser: #d33682;
+    --comp-developper: #859900;
 
     /* Bilan (points forts / axes d'amélioration) */
     --positive: var(--comp-analyser);
-    --negative: var(--accent);
+    --negative: #cb4b16;
 
     /* Modale de zoom */
-    --overlay: color-mix(in srgb, var(--text-primary) 90%, transparent);
-    --overlay-text: #fbf9f4;
+    --overlay: color-mix(in srgb, #001e26 94%, transparent);
+    --overlay-text: var(--text-primary);
 
     /* Typographie */
-    --font-display: 'Newsreader', Georgia, serif;
+    --font-display: 'IBM Plex Mono', ui-monospace, monospace;
     --font-body: 'IBM Plex Sans', system-ui, sans-serif;
     --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
     --fs-xs: 12px;
@@ -47,8 +47,8 @@
     --fs-sm: 14px;
     --fs-body: 16px;
     --fs-base: 17px;
-    --fs-h3: 1.3rem;
-    --fs-h2: 1.6rem;
+    --fs-h3: 1.2rem;
+    --fs-h2: 1.45rem;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -60,6 +60,8 @@
 }
 
 h1, h2, h3 { text-wrap: balance; }
+
+::selection { background: color-mix(in srgb, var(--accent) 35%, transparent); color: var(--text-primary); }
 p, li, dd { text-wrap: pretty; }
 
 a:focus-visible,
