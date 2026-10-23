@@ -137,45 +137,64 @@ h1 .subtitle {
     color: var(--text-muted);
 }
 
-/* ─── ACADEMIC TEASER ─── */
-.academic-teaser {
+/* ─── ACADEMIC ─── */
+.sae-cards {
     display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 1rem 2rem;
-    align-items: end;
-    padding: 1.5rem 0;
-    border-top: 1px solid var(--border-hover);
-    border-bottom: 1px solid var(--border-hover);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 2rem 1.5rem;
+}
+
+.sae-card {
+    display: flex;
+    flex-direction: column;
     color: inherit;
     text-decoration: none;
 }
 
-.academic-teaser h3 {
-    font-family: var(--font-display);
-    font-size: var(--fs-h3);
-    font-weight: 600;
-    margin-bottom: 0.4rem;
-    color: var(--text-primary);
+.sae-card img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    margin-bottom: 0.875rem;
+    transition: border-color 0.2s;
 }
 
-.project-desc,
-.teaser-desc {
+.sae-card:hover img { border-color: var(--accent); }
+
+.sae-card-id {
+    font-family: var(--font-mono);
+    font-size: var(--fs-tag);
+    font-variant-numeric: tabular-nums;
+    color: var(--text-muted);
+    margin-bottom: 0.25rem;
+}
+
+.sae-card h3 {
+    font-family: var(--font-display);
+    font-size: var(--fs-base);
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--text-primary);
+    transition: color 0.2s;
+}
+
+.sae-card:hover h3 { color: var(--accent); }
+
+.sae-card .comp-strip { margin-top: auto; padding-top: 0.75rem; gap: 0.25rem 0.9rem; }
+
+.sae-more { margin-top: 2rem; }
+
+.project-desc {
     color: var(--text-secondary);
     font-size: var(--fs-body);
     line-height: 1.7;
     max-width: 580px;
 }
-
-.teaser-link {
-    color: var(--accent);
-    font-size: var(--fs-body);
-    text-decoration: underline;
-    text-underline-offset: 0.25em;
-    text-decoration-thickness: 1px;
-    white-space: nowrap;
-}
-
-.academic-teaser:hover .teaser-link { color: var(--accent-hover); }
 
 .comp-strip {
     display: flex;
@@ -345,6 +364,5 @@ h1 .subtitle {
     .nav-logo { padding-block: 0.4rem; }
     .nav-links { justify-content: space-between; gap: 0; }
     #hero { padding-top: calc(var(--nav-h) + 2rem); }
-    .academic-teaser { grid-template-columns: 1fr; align-items: start; }
     .meta-row { grid-template-columns: 1fr; gap: 0; }
 }
