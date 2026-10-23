@@ -2,8 +2,6 @@
 
 body > nav { border-bottom: 1px solid var(--border); }
 
-main { counter-reset: section; }
-
 section {
     padding: 4rem 0 1rem;
 }
@@ -86,21 +84,6 @@ h1 .subtitle {
 /* ─── SECTION HEADERS ─── */
 .section-header { margin-bottom: 2rem; }
 
-.section-header h2 {
-    font-size: 1.6rem;
-    line-height: 1.2;
-    color: var(--text-primary);
-}
-
-.section-header h2::before {
-    counter-increment: section;
-    content: counter(section) ".";
-    margin-right: 0.6rem;
-    font-family: var(--font-mono);
-    font-size: var(--fs-sm);
-    font-weight: 400;
-    color: var(--accent);
-}
 
 /* ─── ABOUT ─── */
 .about-grid {
@@ -169,7 +152,7 @@ h1 .subtitle {
 
 .academic-teaser h3 {
     font-family: var(--font-display);
-    font-size: 1.25rem;
+    font-size: var(--fs-h3);
     font-weight: 600;
     margin-bottom: 0.4rem;
     color: var(--text-primary);
@@ -240,7 +223,7 @@ h1 .subtitle {
 
 .project-name {
     font-family: var(--font-display);
-    font-size: 1.25rem;
+    font-size: var(--fs-h3);
     font-weight: 600;
     color: var(--text-primary);
     text-decoration: underline;
@@ -277,7 +260,7 @@ h1 .subtitle {
 
 .contact-text h3 {
     font-family: var(--font-display);
-    font-size: 1.25rem;
+    font-size: var(--fs-h3);
     font-weight: 600;
     margin-bottom: 0.25rem;
 }

@@ -47,9 +47,26 @@
     --fs-sm: 14px;
     --fs-body: 16px;
     --fs-base: 17px;
+    --fs-h3: 1.3rem;
+    --fs-h2: 1.6rem;
 }
 
-html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { transition: none !important; }
+}
+
+h1, h2, h3 { text-wrap: balance; }
+p, li, dd { text-wrap: pretty; }
+
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
 
 body {
     background: var(--bg);
@@ -106,23 +123,12 @@ body > nav {
 .nav-links a.active { text-decoration: underline; }
 
 /* ─── SECTION HEADERS ─── */
-.section-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-}
-
 .section-header h2 {
     font-family: var(--font-display);
+    font-size: var(--fs-h2);
     font-weight: 600;
-    white-space: nowrap;
-}
-
-.section-header::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--border);
+    line-height: 1.2;
+    color: var(--text-primary);
 }
 
 /* ─── STACK TAGS ─── */
