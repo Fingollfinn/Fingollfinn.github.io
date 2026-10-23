@@ -1,13 +1,8 @@
 /* ==========================================================================
    TABLE OF CONTENTS
    ==========================================================================
-   01. GLOBALS, TOKENS & RESET
-       - Reset
-       - Variables (Colors, Fonts)
-       - Base HTML/Body styles
-   02. SHARED LAYOUT & NAVIGATION
-       - Navbar
-       - Footer
+   01. GLOBALS, TOKENS & RESET   (-> base.css)
+   02. SHARED LAYOUT & NAVIGATION (-> base.css)
    03. REUSABLE UI COMPONENTS
        - Pills & Tags
        - Buttons
@@ -31,119 +26,14 @@
    01. GLOBALS, TOKENS & RESET
    ========================================================================== */
 
-*, *::before, *::after { 
-    box-sizing: border-box; 
-    margin: 0; 
-    padding: 0; 
-}
-
-:root {
-    /* Theme Palette */
-    --bg: #0d1117;
-    --bg-surface: #161b22;
-    --bg-card: #1c2130;
-    --border: rgba(99, 179, 237, 0.15);
-    --border-hover: rgba(99, 179, 237, 0.4);
-    --accent: #63b3ed;
-    --accent-dim: rgba(99, 179, 237, 0.12);
-    --accent-glow: rgba(99, 179, 237, 0.06);
-    --text-primary: #e6edf3;
-    --text-secondary: #8b949e;
-    --text-muted: #484f58;
-    
-    /* System Accents */
-    --cyan: #7ee8fa;
-    --green: #7ee2a8;
-    --font-display: 'Syne', sans-serif;
-    --font-mono: 'DM Mono', monospace;
-
-    /* BUT Data Science Competence Colors */
-    --c-traiter:   rgba(99, 179, 237, 0.18);
-    --c-analyser:  rgba(126, 226, 168, 0.15);
-    --c-valoriser: rgba(188, 143, 237, 0.15);
-    --c-developper:rgba(126, 232, 250, 0.13);
-}
-
-html { 
-    scroll-behavior: smooth; 
-}
-
-body {
-    background: var(--bg);
-    color: var(--text-primary);
-    font-family: var(--font-mono);
-    font-size: 14px;
-    line-height: 1.7;
-    min-height: 100vh;
-}
-
-main {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 clamp(1.5rem, 5vw, 3rem);
-}
+/* Tokens, reset, body et main : voir base.css */
 
 
 /* ==========================================================================
    02. SHARED LAYOUT & NAVIGATION
    ========================================================================== */
 
-nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 clamp(1.5rem, 5vw, 4rem);
-    height: 60px;
-    background: rgba(13, 17, 23, 0.85);
-    backdrop-filter: blur(12px);
-}
-
-.nav-logo {
-    font-family: var(--font-display);
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    text-decoration: none;
-    letter-spacing: 0.02em;
-}
-
-.nav-logo span { color: var(--accent); }
-
-.nav-links {
-    display: flex; gap: 2rem; list-style: none;
-}
-
-.nav-links a {
-    color: var(--text-secondary);
-    text-decoration: none;
-    font-size: 12px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    transition: color 0.2s;
-}
-
-.nav-links a:hover,
-.nav-links a.active { color: var(--accent); }
-
-footer {
-    border-top: 1px solid var(--border);
-    padding: 1.5rem clamp(1.5rem, 5vw, 4rem);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: var(--text-muted);
-    font-size: 11px;
-    letter-spacing: 0.04em;
-}
-
-footer a {
-    color: var(--text-muted);
-    text-decoration: none;
-    transition: color 0.2s;
-}
-
-footer a:hover { color: var(--accent); }
-
-.footer-links { display: flex; gap: 1.5rem; }
+/* Nav et footer : voir base.css */
 
 
 /* ==========================================================================
@@ -163,26 +53,25 @@ footer a:hover { color: var(--accent); }
     gap: 0.4rem;
     padding: 0.3rem 0.85rem;
     border-radius: 20px;
-    font-size: 11px;
+    font-size: var(--fs-tag);
     letter-spacing: 0.05em;
-    border: 1px solid;
+    border: 1px solid color-mix(in srgb, var(--comp) 30%, transparent);
+    background: color-mix(in srgb, var(--comp) 15%, transparent);
+    color: var(--comp);
     font-weight: 500;
 }
 
 .comp-pill .dot {
     width: 6px; height: 6px;
     border-radius: 50%;
+    background: var(--comp);
 }
 
 /* Competence Modifiers */
-.pill-traiter   { background: var(--c-traiter);   color: var(--accent);  border-color: rgba(99,179,237,0.3); }
-.pill-traiter   .dot { background: var(--accent); }
-.pill-analyser  { background: var(--c-analyser);  color: var(--green);   border-color: rgba(126,226,168,0.3); }
-.pill-analyser  .dot { background: var(--green); }
-.pill-valoriser { background: var(--c-valoriser); color: #c084f5;        border-color: rgba(188,143,237,0.3); }
-.pill-valoriser .dot { background: #c084f5; }
-.pill-developper{ background: var(--c-developper);color: var(--cyan);    border-color: rgba(126,232,250,0.3); }
-.pill-developper .dot { background: var(--cyan); }
+.pill-traiter    { --comp: var(--comp-traiter); }
+.pill-analyser   { --comp: var(--comp-analyser); }
+.pill-valoriser  { --comp: var(--comp-valoriser); }
+.pill-developper { --comp: var(--comp-developper); }
 
 .stack-tags, .stack-row {
     display: flex;
@@ -191,15 +80,6 @@ footer a:hover { color: var(--accent); }
 }
 
 .stack-row { margin-top: 0.75rem; }
-
-.stack-tag {
-    font-size: 11px;
-    color: var(--text-muted);
-    background: rgba(255,255,255,0.03);
-    border: 1px solid var(--border);
-    padding: 2px 8px;
-    border-radius: 3px;
-}
 
 .btn-link {
     display: inline-flex;
@@ -227,28 +107,13 @@ footer a:hover { color: var(--accent); }
     stroke: currentColor; fill: none; stroke-width: 2;
 }
 
-.section-header {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
-}
+.section-header { margin-bottom: 2rem; }
 
 .section-header h2 {
-    font-family: var(--font-display);
     font-size: 1.1rem;
-    font-weight: 600;
     color: var(--text-secondary);
-    white-space: nowrap;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-}
-
-.section-header::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--border);
 }
 
 
@@ -314,7 +179,7 @@ footer a:hover { color: var(--accent); }
 
 .sae-card:hover {
     border-color: var(--border-hover);
-    box-shadow: 0 0 0 1px rgba(99, 179, 237, 0.08), 0 4px 24px rgba(0,0,0,0.3);
+    box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 8%, transparent), 0 4px 24px rgba(0,0,0,0.3);
 }
 
 .sae-header {
@@ -461,9 +326,16 @@ table.matrix td:first-child {
 }
 
 table.matrix tr:last-child td { border-bottom: none; }
-table.matrix tr:hover td { background: rgba(99,179,237,0.03); }
-table.matrix tr:hover td:first-child { background: rgba(99,179,237,0.06); }
-.check { font-size: 14px; }
+table.matrix tr:hover td { background: color-mix(in srgb, var(--accent) 3%, transparent); }
+table.matrix tr:hover td:first-child { background: var(--accent-glow); }
+.check { font-size: var(--fs-base); }
+.matrix-empty { color: var(--text-muted); }
+table.matrix th.matrix-sae { text-align: left; }
+table.matrix th.th-traiter    { color: var(--comp-traiter); }
+table.matrix th.th-analyser   { color: var(--comp-analyser); }
+table.matrix th.th-valoriser  { color: var(--comp-valoriser); }
+table.matrix th.th-developper { color: var(--comp-developper); }
+.sae-title a { color: inherit; text-decoration: none; }
 
 
 /* ==========================================================================
@@ -713,7 +585,7 @@ table.matrix tr:hover td:first-child { background: rgba(99,179,237,0.06); }
 
 .gallery-slot {
     background: var(--bg-surface);
-    border: 1px dashed rgba(99, 179, 237, 0.25);
+    border: 1px dashed color-mix(in srgb, var(--accent) 25%, transparent);
     border-radius: 8px;
     aspect-ratio: 16 / 9;
     display: flex;
@@ -733,7 +605,7 @@ table.matrix tr:hover td:first-child { background: rgba(99,179,237,0.06); }
 }
 
 .gallery-slot:hover { 
-    border-color: rgba(99, 179, 237, 0.5); 
+    border-color: color-mix(in srgb, var(--accent) 50%, transparent);
 }
 
 .gallery-slot img {
@@ -772,14 +644,14 @@ table.matrix tr:hover td:first-child { background: rgba(99,179,237,0.06); }
 
 
 .modal::backdrop {
-  background: rgba(0, 0, 0, 0.8);
+  background: var(--overlay);
 }
 
 .close-btn {
   position: absolute;
   top: 10px;
   right: 15px;
-  background: white;
+  background: var(--overlay-text);
   border: none;
   font-size: 24px;
   cursor: pointer;
@@ -804,7 +676,7 @@ table.matrix tr:hover td:first-child { background: rgba(99,179,237,0.06); }
 }
 
 #modal-caption {
-  color: #ffffff; 
+  color: var(--overlay-text);
   margin-top: 15px;
   font-size: 1.2rem;
   text-align: center;
@@ -829,8 +701,8 @@ table.matrix tr:hover td:first-child { background: rgba(99,179,237,0.06); }
     margin-bottom: 1rem;
 }
 
-.bilan-col-label.plus { color: var(--green); }
-.bilan-col-label.delta { color: #c084f5; }
+.bilan-col-label.plus { color: var(--positive); }
+.bilan-col-label.delta { color: var(--negative); }
 
 .bilan-items {
     list-style: none;
@@ -850,13 +722,13 @@ table.matrix tr:hover td:first-child { background: rgba(99,179,237,0.06); }
 .bilan-items.plus li::before {
     content: '+';
     position: absolute; left: 0;
-    color: var(--green); font-weight: 600;
+    color: var(--positive); font-weight: 600;
 }
 
 .bilan-items.delta li::before {
     content: '~';
     position: absolute; left: 0;
-    color: #c084f5; font-weight: 600;
+    color: var(--negative); font-weight: 600;
 }
 
 .bilan-note {
@@ -888,7 +760,7 @@ table.matrix tr:hover td:first-child { background: rgba(99,179,237,0.06); }
 
 .page-nav-link:hover{
     text-decoration:underline;
-    color: #63b3ed;
+    color: var(--accent);
 }
 
 
@@ -898,8 +770,6 @@ table.matrix tr:hover td:first-child { background: rgba(99,179,237,0.06); }
 
 @media (max-width: 640px) {
     /* Navigation adjustments */
-    nav { padding: 0 1.25rem; }
-    .nav-links { gap: 1.25rem; }
     .nav-links li:first-child { display: none; } /* Hide 'Accueil' */
 
     /* Index Card Breakdowns */
