@@ -11,6 +11,7 @@
     /* Palette — Solarized dark (Ethan Schoonover) */
     --bg: #002b36;
     --bg-surface: #073642;
+    --bg-code: #00222c; /* plus sombre que --bg : coloration syntaxique ≥ 5:1 */
     --accent: #b58900;
     --accent-hover: #d3a21b;
     --on-accent: #002b36;

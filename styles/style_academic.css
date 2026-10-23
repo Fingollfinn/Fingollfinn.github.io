@@ -457,7 +457,7 @@ table.matrix th.th-developper { color: var(--comp-developper); }
     margin: 0;
     padding: 1rem 1.25rem;
     overflow-x: auto;
-    background: var(--bg-surface);
+    background: var(--bg-code);
     border: 1px solid var(--border);
     border-radius: 2px;
     text-shadow: none;
