@@ -6,7 +6,6 @@
   <title>Antoine - Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="crossorigin" referrerpolicy="no-referrer" />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles/base.css" />
   <link rel="stylesheet" href="styles/style.css" />
@@ -30,8 +29,8 @@
     <section id="hero">
       <p class="hero-tag">Data &amp; Développement</p>
       <h1>
-        Antoine Dot<br/>
-        <span class="dim">BUT SD</span><span class="cursor"></span>
+        Antoine Dot
+        <span class="subtitle">BUT SD</span>
       </h1>
       <p class="hero-desc">
         Étudiant en BUT Science des Données à l'IUT2 de Grenoble&#8209;Alpes.
@@ -39,16 +38,13 @@
         Recherche une alternance dans l'un de ces domaines, pour une durée d'un an.
       </p>
       <div class="hero-links">
-        <a href="#projects" class="btn btn-primary">
-          <i class="fa-solid fa-bars-staggered"></i>
+        <a href="#projects" class="btn">
           Voir les projets
         </a>
-        <a href="#academic" class="btn btn-ghost">
-          <i class="fa-solid fa-graduation-cap"></i>
+        <a href="#academic" class="link-text">
           Voir les travaux
         </a>
-        <a href="https://github.com/Fingollfinn" target="_blank" rel="noopener" class="btn btn-ghost">
-          <i class="fa-brands fa-github"></i>
+        <a href="https://github.com/Fingollfinn" target="_blank" rel="noopener" class="link-text">
           GitHub
         </a>
       </div>
@@ -73,38 +69,26 @@
             propres, bien typés et documentés.
           </p>
         </div>
-        <div class="about-meta">
-          <div class="meta-item">
-            <span class="meta-label">Formation</span>
-            <span class="meta-value">BUT Science des Données - IUT2 Grenoble-Alpes</span>
-          </div>
-          <div class="meta-item">
-            <span class="meta-label">Stage</span>
-            <span class="meta-value">CNRS / IR Progedo - Pipeline ETL &amp; Anonymisation</span>
-          </div>
-          <div class="meta-item">
-            <span class="meta-label">Langues</span>
-            <span class="meta-value">Français · Anglais C1 · Allemand C1</span>
-          </div>
-          <div class="meta-item">
-            <span class="meta-label">Localisation</span>
-            <span class="meta-value">Grenoble, France</span>
-          </div>
-        </div>
+        <dl class="about-meta">
+          <div class="meta-row"><dt>Formation</dt><dd>BUT Science des Données - IUT2 Grenoble-Alpes</dd></div>
+          <div class="meta-row"><dt>Stage</dt><dd>CNRS / IR Progedo - Pipeline ETL &amp; Anonymisation</dd></div>
+          <div class="meta-row"><dt>Langues</dt><dd>Français · Anglais C1 · Allemand C1</dd></div>
+          <div class="meta-row"><dt>Localisation</dt><dd>Grenoble, France</dd></div>
+        </dl>
       </div>
-      <div class="skills-strip">
-        <span class="skill-tag">Python</span>
-        <span class="skill-tag">ETL</span>
-        <span class="skill-tag">XML / DDI</span>
-        <span class="skill-tag">pytest</span>
-        <span class="skill-tag">Docker</span>
-        <span class="skill-tag">R / tidyverse</span>
-        <span class="skill-tag">SQL</span>
-        <span class="skill-tag">Git / GitLab</span>
-        <span class="skill-tag">Linux / CachyOS</span>
-        <span class="skill-tag">Hyprland</span>
-        <span class="skill-tag">Web scraping</span>
-      </div>
+      <ul class="skills-strip">
+        <li>Python</li>
+        <li>ETL</li>
+        <li>XML / DDI</li>
+        <li>pytest</li>
+        <li>Docker</li>
+        <li>R / tidyverse</li>
+        <li>SQL</li>
+        <li>Git / GitLab</li>
+        <li>Linux / CachyOS</li>
+        <li>Hyprland</li>
+        <li>Web scraping</li>
+      </ul>
     </section>
 
     <!-- ACADEMIC -->
@@ -113,18 +97,18 @@
       <a href="academic/academic.html" class="academic-teaser">
         <div>
           <h3>SAE - Parcours VCOD</h3>
-          <p>
+          <p class="teaser-desc">
             5 situations d'apprentissage couvrant l'analyse multivariée, le SIG, l'ETL,
             la conformité RGPD et l'analyse de séries temporelles.
           </p>
-          <div class="comp-strip">
+          <p class="comp-strip">
             <span class="comp-chip chip-t">Traiter</span>
             <span class="comp-chip chip-a">Analyser</span>
             <span class="comp-chip chip-v">Valoriser</span>
             <span class="comp-chip chip-d">Développer</span>
-          </div>
+          </p>
         </div>
-        <span class="teaser-arrow" aria-hidden="true">Voir plus ↗</span>
+        <span class="teaser-link">Voir les travaux →</span>
       </a>
     </section>
  
@@ -138,7 +122,8 @@
           <div>
             <div class="project-top">
               <span class="project-name">Pipeline ETL DDI → Grist</span>
-              <span class="project-badge badge-data">Data</span>
+              <span class="project-arrow" aria-hidden="true">↗</span>
+              <span class="project-badge">Data</span>
             </div>
             <p class="project-desc">
               Développement d'une pipeline ETL complète dans le cadre de mon stage au CNRS&nbsp;/ IR Progedo.
@@ -154,7 +139,6 @@
               <span class="stack-tag">mypy</span>
             </div>
           </div>
-          <span class="project-arrow" aria-hidden="true">↗</span>
         </a>
 
         <!-- Dotfiles -->
@@ -162,7 +146,8 @@
           <div>
             <div class="project-top">
               <span class="project-name">Dotfiles CachyOS / Hyprland</span>
-              <span class="project-badge badge-sys">Système</span>
+              <span class="project-arrow" aria-hidden="true">↗</span>
+              <span class="project-badge">Système</span>
             </div>
             <p class="project-desc">
               Configuration complète d'un environnement de bureau Hyprland sur CachyOS (Arch-based).
@@ -175,7 +160,6 @@
               <span class="stack-tag">Shell</span>
             </div>
           </div>
-          <span class="project-arrow" aria-hidden="true">↗</span>
         </a>
  
         <!-- Tetris -->
@@ -183,7 +167,8 @@
           <div>
             <div class="project-top">
               <span class="project-name">Tetris</span>
-              <span class="project-badge badge-dev">Dev</span>
+              <span class="project-arrow" aria-hidden="true">↗</span>
+              <span class="project-badge">Dev</span>
             </div>
             <p class="project-desc">
               Implémentation complète du jeu Tetris dans le cadre des études - gestion de la grille, rotation des pièces,
@@ -194,7 +179,6 @@
               <span class="stack-tag">JavaScript</span>
             </div>
           </div>
-          <span class="project-arrow" aria-hidden="true">↗</span>
         </a>
  
         <!-- Dino Game -->
@@ -202,7 +186,8 @@
           <div>
             <div class="project-top">
               <span class="project-name">Dino Game</span>
-              <span class="project-badge badge-dev">Dev</span>
+              <span class="project-arrow" aria-hidden="true">↗</span>
+              <span class="project-badge">Dev</span>
             </div>
             <p class="project-desc">
               Reproduction du jeu d'arcade Dino (style Chrome offline) - génération procédurale des obstacles,
@@ -213,7 +198,6 @@
               <span class="stack-tag">Pygame</span>
             </div>
           </div>
-          <span class="project-arrow" aria-hidden="true">↗</span>
         </a>
  
       </div>
@@ -228,23 +212,19 @@
           <p>Ouvert aux opportunités - stage, alternance, projets.</p>
         </div>
         <div class="contact-actions">
-          <a href="mailto:dotantoine67280@gmail.com" class="btn btn-primary">
-            <i class="fa-solid fa-envelope"></i> 
+          <a href="mailto:dotantoine67280@gmail.com" class="btn">
             Email
           </a>
 
-          <a href="assets/cv_adot.pdf" target="_blank" rel="noopener" class="btn btn-ghost" download>
-            <i class="fa-solid fa-file-pdf"></i> 
+          <a href="assets/cv_adot.pdf" target="_blank" rel="noopener" class="link-text" download>
             Mon CV
           </a>
 
-          <a href="https://github.com/Fingollfinn" target="_blank" rel="noopener" class="btn btn-ghost">
-            <i class="fa-brands fa-github"></i>
+          <a href="https://github.com/Fingollfinn" target="_blank" rel="noopener" class="link-text">
             GitHub
           </a>
 
-          <a href="https://www.linkedin.com/in/antoine-dot-053016327" target="_blank" rel="noopener" class="btn btn-ghost">
-            <i class="fa-brands fa-linkedin"></i> 
+          <a href="https://www.linkedin.com/in/antoine-dot-053016327" target="_blank" rel="noopener" class="link-text">
             LinkedIn
           </a>
         </div>
@@ -257,7 +237,7 @@
     <span>© 2025 Fingollfinn</span>
     <div class="footer-links">
       <a href="https://github.com/Fingollfinn" target="_blank" rel="noopener">
-        <i class="fa-brands fa-github"></i> GitHub
+          GitHub
       </a>
     </div>
   </footer>
