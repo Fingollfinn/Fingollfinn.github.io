@@ -24,10 +24,11 @@
     --accent-glow: color-mix(in srgb, var(--accent) 7%, transparent);
     --nav-bg: color-mix(in srgb, var(--bg) 94%, transparent);
 
-    /* Compétences BUT SD — accents Solarized, distincts du jaune */
-    --comp-traiter: #268bd2;
+    /* Compétences BUT SD — accents Solarized, distincts du jaune.
+       Bleu et magenta éclaircis pour atteindre 4.5:1 sur --bg */
+    --comp-traiter: #4499d2;
     --comp-analyser: #2aa198;
-    --comp-valoriser: #d33682;
+    --comp-valoriser: #db6b9b;
     --comp-developper: #859900;
 
     /* Bilan (points forts / axes d'amélioration) */
