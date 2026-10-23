@@ -96,13 +96,14 @@ body > nav {
     color: var(--text-secondary);
     text-decoration: none;
     font-size: var(--fs-sm);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    text-underline-offset: 4px;
     transition: color 0.2s;
 }
 
 .nav-links a:hover,
 .nav-links a.active { color: var(--accent); }
+
+.nav-links a.active { text-decoration: underline; }
 
 /* ─── SECTION HEADERS ─── */
 .section-header {
@@ -159,6 +160,7 @@ footer a:hover { color: var(--accent); }
 
 /* ─── RESPONSIVE ─── */
 @media (max-width: 640px) {
-    body > nav { padding: 0 1.25rem; }
-    .nav-links { gap: 1.25rem; }
+    body > nav { padding: 0 1rem; gap: 1rem; }
+    .nav-links { gap: 0.9rem; }
+    .nav-links a { font-size: var(--fs-xs); white-space: nowrap; }
 }
