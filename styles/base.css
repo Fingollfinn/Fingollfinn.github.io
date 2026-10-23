@@ -68,7 +68,7 @@ main {
 }
 
 /* ─── NAV ─── */
-nav {
+body > nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 clamp(1.5rem, 5vw, 4rem);
@@ -159,6 +159,6 @@ footer a:hover { color: var(--accent); }
 
 /* ─── RESPONSIVE ─── */
 @media (max-width: 640px) {
-    nav { padding: 0 1.25rem; }
+    body > nav { padding: 0 1.25rem; }
     .nav-links { gap: 1.25rem; }
 }
