@@ -6,7 +6,6 @@
   <title>SAE 3.03 - Analyse temporelle Elden Ring</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../../styles/base.css" />
   <link rel="stylesheet" href="../../styles/style_academic.css" />
@@ -102,19 +101,9 @@
     <!-- CODE SNIPPET -->
     <section class="detail-section">
       <div class="section-header"><h2>Extrait de code</h2></div>
-      <div class="terminal-wrap">
-        <div class="terminal-bar"><
-          <div class="terminal-dots">
-            <span class="dot-red"></span>
-            <span class="dot-yellow"></span>
-            <span class="dot-green"></span>
-          </div>
-          <span class="terminal-filename">analyse_temporelle.R</span>
-        </div>
-        <div class="terminal-body">
-          <pre>
-            <code class="language-r">
-# Extrait de code pour l'analyse des données à court terme avec algorithme
+      <figure class="listing">
+        <figcaption>analyse_temporelle.R</figcaption>
+<pre><code class="language-r"># Extrait de code pour l'analyse des données à court terme avec algorithme
 
 # Prévision à court terme, modele ets
 fitles <- ets(data$Average.Players, model = "MNN", opt.crit = "mse")
@@ -124,11 +113,8 @@ predles <- forecast(fitles, h = 7)
 # Graphique test
 test_data <- append(data$Average.Players, predles$lower)
 plot(test_data, type = "l")
-abline(v = 56, col="red")
-</code>
-          </pre>
-        </div>
-      </div>
+abline(v = 56, col="red")</code></pre>
+      </figure>
     </section>
 
 
@@ -136,12 +122,14 @@ abline(v = 56, col="red")
     <section class="detail-section">
       <div class="section-header"><h2>Captures &amp; livrables</h2></div>
       <div class="gallery-grid">
-        <div class="gallery-slot">
+        <figure class="gallery-item">
           <img src="../../assets/rep_donnees_simple.png" alt="Représentation de données simple, Code R" class="gallery-image">
-        </div>
-        <div class="gallery-slot">
+          <figcaption>Représentation de données simple, Code R</figcaption>
+        </figure>
+        <figure class="gallery-item">
           <img src="../../assets/rep_donnees_moymobile.png" alt="Représentation des données lissées par moyenne mobile" class="gallery-image">
-        </div>
+          <figcaption>Représentation des données lissées par moyenne mobile</figcaption>
+        </figure>
       </div>
       <p class="gallery-caption">Captures d'écrans issues du flux de données Knime</p>
     </section>
@@ -189,7 +177,7 @@ abline(v = 56, col="red")
 
     <!-- PAGINATION -->
     <nav class="sae-pagination" aria-label="Navigation entre SAE">
-      <a href="sae_3_02.html" class="page-nav-link">
+      <a href="sae_3_02.html" class="page-nav-link prev">
         ← Précédent
       </a>
       <a href="../academic.html" class="page-nav-link home">

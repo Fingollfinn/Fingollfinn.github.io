@@ -9,7 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../../styles/base.css" />
   <link rel="stylesheet" href="../../styles/style_academic.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" />
 </head>
 <body>
 
@@ -97,46 +96,38 @@
     <!-- CODE SNIPPET -->
     <section class="detail-section">
       <div class="section-header"><h2>Extrait de code</h2></div>
-      <div class="terminal-wrap">
-        <div class="terminal-bar">
-          <div class="terminal-dots">
-            <span class="dot-red"></span>
-            <span class="dot-yellow"></span>
-            <span class="dot-green"></span>
-          </div>
-          <span class="terminal-filename">global.R</span>
-        </div>
-        <div class="terminal-body">
-          <pre>
-            <code class="language-r">
-# Préparation des Tables AFC
+      <figure class="listing">
+        <figcaption>global.R</figcaption>
+<pre><code class="language-r"># Préparation des Tables AFC
 tab_contingence_ALD <- ALD %>%
   select(departement_nom, ald, effectif) %>%
   pivot_wider(names_from = ald, values_from = effectif, values_fill = 0) %>%
   as.data.frame()
 rownames(tab_contingence_ALD) <- tab_contingence_ALD$departement_nom
-tab_contingence_ALD <- tab_contingence_ALD[, -1]</code>
-          </pre>
-        </div>
-      </div>
+tab_contingence_ALD <- tab_contingence_ALD[, -1]</code></pre>
+      </figure>
     </section>
 
     <!-- GALERIE -->
   <section class="detail-section">
     <div class="section-header"><h2>Captures &amp; livrables</h2></div>
     <div class="gallery-grid">
-      <div class="gallery-slot">
-        <img src="../../assets/dendrogramme_rshiny.png" alt="Dendrogramme, clusters identifiés" class="gallery-image">
-      </div>
-      <div class="gallery-slot">
-        <img src="../../assets/map_rshiny.png" alt="Carte avec clusters" class="gallery-image">
-      </div>
-      <div class="gallery-slot">
-        <img src="../../assets/menu_app_rshiny.png" alt="Interface Shiny" class="gallery-image">
-      </div>
-      <div class="gallery-slot">
-        <img src="../../assets/acp_circle_rshiny.png" alt="Cercle ACP" class="gallery-image">
-      </div>
+      <figure class="gallery-item">
+          <img src="../../assets/dendrogramme_rshiny.png" alt="Dendrogramme, clusters identifiés" class="gallery-image">
+          <figcaption>Dendrogramme, clusters identifiés</figcaption>
+        </figure>
+      <figure class="gallery-item">
+          <img src="../../assets/map_rshiny.png" alt="Carte avec clusters" class="gallery-image">
+          <figcaption>Carte avec clusters</figcaption>
+        </figure>
+      <figure class="gallery-item">
+          <img src="../../assets/menu_app_rshiny.png" alt="Interface Shiny" class="gallery-image">
+          <figcaption>Interface Shiny</figcaption>
+        </figure>
+      <figure class="gallery-item">
+          <img src="../../assets/acp_circle_rshiny.png" alt="Cercle ACP" class="gallery-image">
+          <figcaption>Cercle ACP</figcaption>
+        </figure>
     </div>
     <p class="gallery-caption">Captures d'écrans issues de l'application rendue</p>
   </section>
@@ -194,7 +185,7 @@ tab_contingence_ALD <- tab_contingence_ALD[, -1]</code>
 
     <!-- PAGINATION -->
     <nav class="sae-pagination" aria-label="Navigation entre SAE">
-      <a href="sae_4_vcod_01.html" class="page-nav-link">
+      <a href="sae_4_vcod_01.html" class="page-nav-link prev">
         ← Précédent
       </a>
       <a href="../academic.html" class="page-nav-link home">
