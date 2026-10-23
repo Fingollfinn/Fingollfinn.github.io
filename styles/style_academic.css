@@ -9,7 +9,7 @@
        - Section Headers
    04. DASHBOARD & INDEX VIEW
        - Page Header
-       - SAE Cards
+       - SAE List
        - Matrix Table
    05. SAE DETAIL PROJECT TEMPLATES
        - 5.1 Hero Section
@@ -40,31 +40,27 @@
    03. REUSABLE UI COMPONENTS
    ========================================================================== */
 
+/* --- Competence labels (square + name, no fill) --- */
 .comp-legend {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.6rem;
+    gap: 0.4rem 1.5rem;
     margin-bottom: 3.5rem;
 }
 
 .comp-pill {
     display: inline-flex;
     align-items: center;
-    gap: 0.4rem;
-    padding: 0.3rem 0.85rem;
-    border-radius: 20px;
-    font-size: var(--fs-tag);
-    letter-spacing: 0.05em;
-    border: 1px solid color-mix(in srgb, var(--comp) 30%, transparent);
-    background: color-mix(in srgb, var(--comp) 15%, transparent);
+    gap: 0.45rem;
+    font-size: var(--fs-sm);
     color: var(--comp);
-    font-weight: 500;
 }
 
 .comp-pill .dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
+    width: 8px; height: 8px;
+    border-radius: 0;
     background: var(--comp);
+    flex-shrink: 0;
 }
 
 /* Competence Modifiers */
@@ -81,25 +77,21 @@
 
 .stack-row { margin-top: 0.75rem; }
 
+/* --- Text link --- */
 .btn-link {
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.05em;
-    color: var(--text-secondary);
+    font-size: var(--fs-sm);
+    color: var(--accent);
     text-decoration: none;
-    padding: 3px 10px;
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    transition: all 0.2s;
+    transition: color 0.2s;
 }
 
 .btn-link:hover {
-    color: var(--accent);
-    border-color: var(--border-hover);
-    background: var(--accent-glow);
+    color: var(--accent-hover);
+    text-decoration: underline;
+    text-underline-offset: 3px;
 }
 
 .btn-link svg {
@@ -107,13 +99,13 @@
     stroke: currentColor; fill: none; stroke-width: 2;
 }
 
+/* --- Section headers --- */
 .section-header { margin-bottom: 2rem; }
 
 .section-header h2 {
-    font-size: 1.1rem;
-    color: var(--text-secondary);
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
+    font-size: 1.5rem;
+    line-height: 1.2;
+    color: var(--text-primary);
 }
 
 
@@ -121,140 +113,111 @@
    04. DASHBOARD & INDEX VIEW
    ========================================================================== */
 
+/* --- Page Header --- */
 .page-header {
-    padding-top: calc(60px + 4rem);
-    padding-bottom: 3rem;
+    padding-top: calc(60px + 3rem);
+    padding-bottom: 2.5rem;
     border-bottom: 1px solid var(--border);
-    margin-bottom: 4rem;
+    margin-bottom: 2.5rem;
 }
 
-.page-header .hero-tag {
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 1.25rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-}
-
-.page-header .hero-tag::before {
-    content: '';
-    display: inline-block;
-    width: 24px; height: 1px;
-    background: var(--accent);
+.page-kicker {
+    font-style: italic;
+    font-size: var(--fs-sm);
+    color: var(--text-muted);
+    margin-bottom: 0.75rem;
 }
 
 .page-header h1 {
     font-family: var(--font-display);
-    font-size: clamp(2rem, 5vw, 3.2rem);
-    font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    font-weight: 600;
+    line-height: 1.12;
     margin-bottom: 1rem;
 }
 
-.page-header p {
+.page-header p:not(.page-kicker) {
     color: var(--text-secondary);
-    max-width: 560px;
-    font-size: 14px;
-    line-height: 1.8;
+    max-width: 580px;
+    font-size: var(--fs-body);
+    line-height: 1.7;
 }
 
+/* --- SAE List (ruled entries) --- */
 .sae-list {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    margin-top: 1rem;
     margin-bottom: 5rem;
 }
 
-.sae-card {
-    background: var(--bg-surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    overflow: hidden;
-    transition: border-color 0.2s, box-shadow 0.2s;
+.sae-entry {
+    display: grid;
+    grid-template-columns: 9rem 1fr;
+    gap: 1.5rem;
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
 }
 
-.sae-card:hover {
-    border-color: var(--border-hover);
-    box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 8%, transparent), 0 4px 24px rgba(0,0,0,0.3);
-}
+.sae-entry:first-child { border-top: none; padding-top: 0.5rem; }
 
-.sae-header {
-    padding: 1.5rem 1.75rem 1.25rem;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 1rem;
-    border-bottom: 1px solid var(--border);
-}
-
-.sae-meta {
+.sae-margin {
     display: flex;
     flex-direction: column;
-    gap: 0.35rem;
+    gap: 0.2rem;
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    color: var(--text-muted);
+    padding-top: 0.45rem;
 }
 
-.sae-id {
-    font-size: 10px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--text-muted);
+.sae-id { color: var(--text-secondary); }
+
+.sae-main {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-width: 0;
 }
 
 .sae-title {
     font-family: var(--font-display);
-    font-size: 1.1rem;
+    font-size: 1.35rem;
     font-weight: 600;
     color: var(--text-primary);
-    line-height: 1.3;
+    line-height: 1.25;
 }
 
-.sae-semester {
-    font-size: 10px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    padding: 2px 8px;
-    border: 1px solid var(--border);
-    border-radius: 3px;
-    white-space: nowrap;
-    align-self: flex-start;
-    flex-shrink: 0;
-}
+.sae-title a { color: inherit; text-decoration: none; }
 
-.sae-body {
-    padding: 1.5rem 1.75rem;
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
+.sae-title a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
 }
 
 .sae-context {
     color: var(--text-secondary);
-    font-size: 13px;
-    line-height: 1.8;
+    font-size: var(--fs-body);
+    line-height: 1.7;
 }
 
 .sae-section-label {
-    font-size: 10px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
+    font-style: italic;
+    font-size: var(--fs-sm);
     color: var(--text-muted);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
 }
 
 .sae-tasks {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 0.35rem;
+    gap: 0.3rem;
 }
 
 .sae-tasks li {
-    font-size: 13px;
+    font-size: var(--fs-sm);
     color: var(--text-secondary);
     padding-left: 1.25rem;
     position: relative;
@@ -262,80 +225,76 @@
 }
 
 .sae-tasks li::before {
-    content: '›';
+    content: '–';
     position: absolute;
     left: 0;
     color: var(--accent);
-    font-size: 15px;
-    line-height: 1.4;
 }
 
 .sae-footer {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    padding-top: 0.75rem;
-    border-top: 1px solid var(--border);
+    gap: 0.6rem 1.5rem;
+    margin-top: 0.25rem;
 }
 
-.sae-links {
+.comp-badges {
     display: flex;
-    gap: 0.5rem;
     flex-wrap: wrap;
+    gap: 0.25rem 1rem;
 }
 
-/* --- Matrix Table Components --- */
+.sae-footer .btn-link { margin-left: auto; }
+
+/* --- Matrix Table (booktabs) --- */
 .matrix-section { margin-bottom: 5rem; }
 
-.matrix-wrap {
-    overflow-x: auto;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-}
+.matrix-wrap { overflow-x: auto; }
 
 table.matrix {
     width: 100%;
     border-collapse: collapse;
-    font-size: 12px;
+    font-size: var(--fs-sm);
+    border-top: 2px solid var(--text-primary);
+    border-bottom: 2px solid var(--text-primary);
+}
+
+table.matrix caption {
+    caption-side: top;
+    text-align: left;
+    font-style: italic;
+    font-size: var(--fs-sm);
+    color: var(--text-muted);
+    padding-bottom: 0.6rem;
 }
 
 table.matrix th, table.matrix td {
-    padding: 0.75rem 1rem;
+    padding: 0.7rem 1rem;
     text-align: center;
-    border-bottom: 1px solid var(--border);
 }
 
 table.matrix th {
     font-family: var(--font-display);
     font-weight: 600;
-    font-size: 11px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    background: var(--bg-card);
-    color: var(--text-secondary);
+    font-size: var(--fs-body);
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--text-primary);
 }
 
 table.matrix td:first-child {
     text-align: left;
     color: var(--text-primary);
-    font-size: 12px;
     white-space: nowrap;
-    background: var(--bg-surface);
 }
 
-table.matrix tr:last-child td { border-bottom: none; }
-table.matrix tr:hover td { background: color-mix(in srgb, var(--accent) 3%, transparent); }
-table.matrix tr:hover td:first-child { background: var(--accent-glow); }
-.check { font-size: var(--fs-base); }
+.check { color: var(--text-primary); }
 .matrix-empty { color: var(--text-muted); }
 table.matrix th.matrix-sae { text-align: left; }
 table.matrix th.th-traiter    { color: var(--comp-traiter); }
 table.matrix th.th-analyser   { color: var(--comp-analyser); }
 table.matrix th.th-valoriser  { color: var(--comp-valoriser); }
 table.matrix th.th-developper { color: var(--comp-developper); }
-.sae-title a { color: inherit; text-decoration: none; }
 
 
 /* ==========================================================================
@@ -772,10 +731,11 @@ table.matrix th.th-developper { color: var(--comp-developper); }
     /* Navigation adjustments */
     .nav-links li:first-child { display: none; } /* Hide 'Accueil' */
 
-    /* Index Card Breakdowns */
-    .sae-header { flex-direction: column; }
-    .sae-footer { flex-direction: column; align-items: flex-start; }
-    
+    /* Index entries */
+    .sae-entry { grid-template-columns: 1fr; gap: 0.5rem; }
+    .sae-margin { flex-direction: row; gap: 0.75rem; padding-top: 0; }
+    .sae-footer .btn-link { margin-left: 0; }
+
     /* Project Detail Breakdowns */
     .sae-hero { grid-template-columns: 1fr; }
     .bilan-block { grid-template-columns: 1fr; }
