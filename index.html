@@ -17,8 +17,8 @@
     <a href="#hero" class="nav-logo">Antoine<span>.</span></a>
     <ul class="nav-links">
       <li><a href="#about">À propos</a></li>
-      <li><a href="#academic">Travaux</a></li>
       <li><a href="#projects">Projets</a></li>
+      <li><a href="#academic">Travaux</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
@@ -90,6 +90,61 @@
       </ul>
     </section>
 
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="section-header"><h2>Projets</h2></div>
+
+      <!-- Pipeline Grist -->
+      <a class="project-feature" href="https://github.com/Fingollfinn/grist_pipeline" target="_blank" rel="noopener">
+        <p class="project-kicker">Stage · CNRS&nbsp;/ IR* Progedo</p>
+        <span class="project-name">Pipeline ETL DDI → Grist <span class="project-arrow" aria-hidden="true">↗</span></span>
+        <ol class="pipeline-steps" aria-label="Étapes de la pipeline">
+          <li>DDI Codebook 2.5 (XML)</li>
+          <li>Parsing</li>
+          <li>Dataclasses typées</li>
+          <li>API Grist</li>
+        </ol>
+        <p class="project-desc">
+          Développement d'une pipeline ETL complète dans le cadre de mon stage au CNRS&nbsp;/ IR Progedo.
+          Parsing de métadonnées DDI Codebook&nbsp;2.5 en XML, intégration via l'API Grist,
+          architecture dataclass, typage strict mypy et CI/CD GitLab.
+        </p>
+        <div class="project-stack">
+          <span class="stack-tag">Python</span>
+          <span class="stack-tag">XML / DDI</span>
+          <span class="stack-tag">Grist API</span>
+          <span class="stack-tag">Docker</span>
+          <span class="stack-tag">pytest</span>
+          <span class="stack-tag">mypy</span>
+        </div>
+      </a>
+
+      <h3 class="subsection-title">Autres projets</h3>
+      <ul class="projects-minor">
+        <li>
+          <a class="project-row" href="https://github.com/Fingollfinn/dotfiles_uw" target="_blank" rel="noopener">
+            <span class="project-name">Dotfiles CachyOS / Hyprland <span class="project-arrow" aria-hidden="true">↗</span></span>
+            <span class="project-row-stack">Shell · Waybar</span>
+            <span class="project-row-desc">Environnement de bureau Hyprland sur CachyOS, thème Elden Ring / Liurnia, versionné sur GitHub.</span>
+          </a>
+        </li>
+        <li>
+          <a class="project-row" href="https://github.com/Fingollfinn/Projet_web_arcade" target="_blank" rel="noopener">
+            <span class="project-name">Tetris <span class="project-arrow" aria-hidden="true">↗</span></span>
+            <span class="project-row-stack">JavaScript</span>
+            <span class="project-row-desc">Grille, rotation des pièces, score et boucle de jeu. Projet web du BUT, ma première expérience en JS.</span>
+          </a>
+        </li>
+        <li>
+          <a class="project-row" href="https://github.com/Fingollfinn/ProjectDino" target="_blank" rel="noopener">
+            <span class="project-name">Dino Game <span class="project-arrow" aria-hidden="true">↗</span></span>
+            <span class="project-row-stack">Python · Pygame</span>
+            <span class="project-row-desc">Le jeu Dino de Chrome : obstacles procéduraux, collisions, difficulté progressive. Projet de lycée.</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
     <!-- ACADEMIC -->
     <section id="academic">
       <div class="section-header"><h2>Travaux académiques</h2></div>
@@ -109,97 +164,6 @@
         </div>
         <span class="teaser-link">Voir les travaux →</span>
       </a>
-    </section>
- 
-    <!-- PROJECTS -->
-    <section id="projects">
-      <div class="section-header"><h2>Projets</h2></div>
-      <div class="projects-list">
- 
-        <!-- Pipeline Grist -->
-        <a class="project-card" href="https://github.com/Fingollfinn/grist_pipeline" target="_blank" rel="noopener" aria-label="Pipeline ETL DDI → Grist">
-          <div>
-            <div class="project-top">
-              <span class="project-name">Pipeline ETL DDI → Grist</span>
-              <span class="project-arrow" aria-hidden="true">↗</span>
-              <span class="project-badge">Data</span>
-            </div>
-            <p class="project-desc">
-              Développement d'une pipeline ETL complète dans le cadre de mon stage au CNRS&nbsp;/ IR Progedo.
-              Parsing de métadonnées DDI Codebook&nbsp;2.5 en XML, intégration via l'API Grist,
-              architecture dataclass, typage strict mypy et CI/CD GitLab.
-            </p>
-            <div class="project-stack">
-              <span class="stack-tag">Python</span>
-              <span class="stack-tag">XML / DDI</span>
-              <span class="stack-tag">Grist API</span>
-              <span class="stack-tag">Docker</span>
-              <span class="stack-tag">pytest</span>
-              <span class="stack-tag">mypy</span>
-            </div>
-          </div>
-        </a>
-
-        <!-- Dotfiles -->
-        <a class="project-card" href="https://github.com/Fingollfinn/dotfiles_uw" target="_blank" rel="noopener" aria-label="Dotfiles CachyOS / Hyprland">
-          <div>
-            <div class="project-top">
-              <span class="project-name">Dotfiles CachyOS / Hyprland</span>
-              <span class="project-arrow" aria-hidden="true">↗</span>
-              <span class="project-badge">Système</span>
-            </div>
-            <p class="project-desc">
-              Configuration complète d'un environnement de bureau Hyprland sur CachyOS (Arch-based).
-              Thème Elden Ring / Liurnia - Waybar, hyprlock, hyprpaper, SDDM. Suivi et versionné sur GitHub.
-            </p>
-            <div class="project-stack">
-              <span class="stack-tag">Hyprland</span>
-              <span class="stack-tag">Waybar</span>
-              <span class="stack-tag">CachyOS</span>
-              <span class="stack-tag">Shell</span>
-            </div>
-          </div>
-        </a>
- 
-        <!-- Tetris -->
-        <a class="project-card" href="https://github.com/Fingollfinn/Projet_web_arcade" target="_blank" rel="noopener" aria-label="Tetris">
-          <div>
-            <div class="project-top">
-              <span class="project-name">Tetris</span>
-              <span class="project-arrow" aria-hidden="true">↗</span>
-              <span class="project-badge">Dev</span>
-            </div>
-            <p class="project-desc">
-              Implémentation complète du jeu Tetris dans le cadre des études - gestion de la grille, rotation des pièces,
-              système de score et boucle de jeu. Projet de développement web dans le cadre du BUT. Première expérience avec JS.
-            </p>
-            <div class="project-stack">
-              <span class="stack-tag">Web dev</span>
-              <span class="stack-tag">JavaScript</span>
-            </div>
-          </div>
-        </a>
- 
-        <!-- Dino Game -->
-        <a class="project-card" href="https://github.com/Fingollfinn/ProjectDino" target="_blank" rel="noopener" aria-label="Dino Game">
-          <div>
-            <div class="project-top">
-              <span class="project-name">Dino Game</span>
-              <span class="project-arrow" aria-hidden="true">↗</span>
-              <span class="project-badge">Dev</span>
-            </div>
-            <p class="project-desc">
-              Reproduction du jeu d'arcade Dino (style Chrome offline) - génération procédurale des obstacles,
-              gestion des collisions, score et difficulté progressive. Projet de développement au lycée, spécialité informatique.
-            </p>
-            <div class="project-stack">
-              <span class="stack-tag">Python</span>
-              <span class="stack-tag">Pygame</span>
-            </div>
-          </div>
-        </a>
- 
-      </div>
     </section>
  
     <!-- CONTACT -->
