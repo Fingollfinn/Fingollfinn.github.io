@@ -6,45 +6,47 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-    /* Palette */
-    --bg: #0d1117;
-    --bg-surface: #161b22;
-    --bg-card: #1c2130;
-    --accent: #63b3ed;
-    --accent-hover: #7ee8fa;
-    --on-accent: var(--bg);
-    --text-primary: #e6edf3;
-    --text-secondary: #8b949e;
-    --text-muted: #484f58;
-    --border: color-mix(in srgb, var(--accent) 15%, transparent);
-    --border-hover: color-mix(in srgb, var(--accent) 40%, transparent);
-    --accent-dim: color-mix(in srgb, var(--accent) 12%, transparent);
-    --accent-glow: color-mix(in srgb, var(--accent) 6%, transparent);
-    --nav-bg: color-mix(in srgb, var(--bg) 85%, transparent);
+    color-scheme: light;
 
-    /* Compétences BUT SD — chaque famille dérive de sa couleur pleine */
-    --comp-traiter: #63b3ed;
-    --comp-analyser: #7ee2a8;
-    --comp-valoriser: #c084f5;
-    --comp-developper: #7ee8fa;
+    /* Palette — papier, encre, rouge brique */
+    --bg: #f5f2eb;
+    --bg-surface: #efebe2;
+    --bg-card: #e7e1d5;
+    --accent: #b4432a;
+    --accent-hover: #8f3220;
+    --on-accent: #fbf9f4;
+    --text-primary: #1c1a17;
+    --text-secondary: #4a463f;
+    --text-muted: #6f695f;
+    --border: color-mix(in srgb, var(--text-primary) 16%, transparent);
+    --border-hover: color-mix(in srgb, var(--text-primary) 40%, transparent);
+    --accent-dim: color-mix(in srgb, var(--accent) 10%, transparent);
+    --accent-glow: color-mix(in srgb, var(--accent) 5%, transparent);
+    --nav-bg: color-mix(in srgb, var(--bg) 94%, transparent);
+
+    /* Compétences BUT SD — tons d'encre sourds, distincts de l'accent */
+    --comp-traiter: #2f5d8a;
+    --comp-analyser: #3d7a4f;
+    --comp-valoriser: #8a4f8f;
+    --comp-developper: #9a6a12;
 
     /* Bilan (points forts / axes d'amélioration) */
     --positive: var(--comp-analyser);
-    --negative: var(--comp-valoriser);
+    --negative: var(--accent);
 
     /* Modale de zoom */
-    --overlay: rgba(0, 0, 0, 0.8);
-    --overlay-text: #ffffff;
+    --overlay: color-mix(in srgb, var(--text-primary) 90%, transparent);
+    --overlay-text: #fbf9f4;
 
     /* Typographie */
-    --font-display: 'Syne', sans-serif;
-    --font-body: 'DM Mono', monospace;
-    --font-mono: 'DM Mono', monospace;
-    --fs-xs: 10px;
-    --fs-tag: 11px;
-    --fs-sm: 12px;
-    --fs-body: 13px;
-    --fs-base: 14px;
+    --font-display: 'Newsreader', Georgia, serif;
+    --font-body: 'IBM Plex Sans', system-ui, sans-serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+    --fs-xs: 12px;
+    --fs-tag: 13px;
+    --fs-sm: 14px;
+    --fs-body: 16px;
+    --fs-base: 17px;
 }
 
 html { scroll-behavior: smooth; }
@@ -54,8 +56,9 @@ body {
     color: var(--text-primary);
     font-family: var(--font-body);
     font-size: var(--fs-base);
-    line-height: 1.7;
+    line-height: 1.65;
     min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
 }
 
 main {
@@ -123,6 +126,7 @@ nav {
 
 /* ─── STACK TAGS ─── */
 .stack-tag {
+    font-family: var(--font-mono);
     font-size: var(--fs-tag);
     color: var(--text-muted);
     background: color-mix(in srgb, var(--text-primary) 3%, transparent);
